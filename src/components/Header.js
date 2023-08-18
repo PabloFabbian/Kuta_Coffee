@@ -4,7 +4,7 @@ function Header() {
     return(
         <header>
             <div className='HeaderContainer'>
-                Header
+                "Explora el arte del café: un sorbo, un mundo."
             </div>
 
         </header>

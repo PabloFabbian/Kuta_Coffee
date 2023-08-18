@@ -1,13 +1,13 @@
 import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { faMugSaucer } from '@fortawesome/free-solid-svg-icons'
 
 function CartWidget() {
     return (
         <div className='CartItems'>
-            <FontAwesomeIcon icon={faCartShopping} style={{color: "#c1cfe6",}} />
-            0
+            <FontAwesomeIcon icon={faMugSaucer} style={{color: "#c1cfe6", marginTop: "5.5px"}} />
+            <> 0</>
         </div>
     )
 }

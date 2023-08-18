@@ -5,13 +5,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-import CartWidget from './CartWidget/CartWidget';
+import CartWidget from '../CartWidget/CartWidget';
 
 function NavBar() {
     return (
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
             <Container>
-                <Navbar.Brand href="#home" className='red-line'>Red-Line <span className='project'>Project</span></Navbar.Brand>
+                <Navbar.Brand href="#home" className='kuta'>Kuta - <span className='cafe'>Café de Especialidad</span></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
@@ -27,7 +27,7 @@ function NavBar() {
                     </Nav>
                     <Nav>
                         <Nav.Link href="#deets">Mas Detalles</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
+                        <Nav.Link eventKey={2} href="#desk">
                             <CartWidget/>
                         </Nav.Link>
                     </Nav>

@@ -4,31 +4,37 @@
 }
 
 body{
-    background-color: rgba(19, 30, 41, 0.781);
+    background-color: #588157;
 }
 
-.project{
-    color: red;
+.cafe{
+    color: #A3B18A;
 }
 
 .bg-body-tertiary{
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    box-shadow: 2px 2px 5px #3b030336;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+    box-shadow: 2px 2px 5px #A3B18A;
+    padding-top: 35px;
+    padding-bottom: 35px;
     border-radius: 10px;
 }
 
 .HeaderContainer{
     margin-top: 25px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
     color: black;
-    background-color: rgb(210, 231, 248);
+    background-color: #DAD7CD;
+    box-shadow: 2px 2px 5px #A3B18A;
     text-align: center;
-    padding-top: 125px;
-    padding-bottom: 125px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     border-radius: 10px;
+    font-size: larger;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: 50;
+    font-style: italic;
 }
