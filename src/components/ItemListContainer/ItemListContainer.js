@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getProductById, getProducts, getProductsByCategory } from '../../asyncMock'
+import { getProducts, getProductsByCategory } from '../../asyncMock'
 import ItemList from '../ItemList/ItemList'
 import './ItemListContainer.css'
 
