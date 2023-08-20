@@ -11,6 +11,8 @@ body{
     color: #A3B18A;
 }
 
+
+
 .bg-body-tertiary{
     margin-top: 30px;
     margin-left: 40px;
@@ -19,6 +21,25 @@ body{
     padding-top: 35px;
     padding-bottom: 35px;
     border-radius: 10px;
+}
+
+.Option{
+    text-decoration: none;
+}
+
+.kuta {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+#DropDown{
+    text-decoration: none;
+    background-color:transparent;
+    padding: 4px, 0px;
+}
+
+.dropdown-item:hover{
+    background-color: #588157ce;
 }
 
 .HeaderContainer{

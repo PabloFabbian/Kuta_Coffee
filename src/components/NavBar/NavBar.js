@@ -1,35 +1,51 @@
 import React from 'react'
 
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import Container from 'react-bootstrap/Container'
+import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
 
-import CartWidget from '../CartWidget/CartWidget';
+import CartWidget from '../CartWidget/CartWidget'
+import { NavLink, Link } from 'react-router-dom'
 
-function NavBar() {
+
+const NavBar = () => {
     return (
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
             <Container>
-                <Navbar.Brand href="#home" className='kuta'>Kuta - <span className='cafe'>Café de Especialidad</span></Navbar.Brand>
+                <Link to='/' className='kuta'>
+                    <Navbar.Brand>Kuta - <span className='cafe'>Café de Especialidad</span></Navbar.Brand>
+                </Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">¿Quienes somos?</Nav.Link>
-                        <Nav.Link href="#pricing">Como contactarnos</Nav.Link>
-                        <NavDropdown title="Servicios" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                        <Nav.Link>
+                            <NavLink to={`/category/info`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>¿Quienes somos?</NavLink>
+                        </Nav.Link>
+                        <Nav.Link>
+                            <NavLink to={`/category/info2`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Como contactarnos</NavLink>
+                        </Nav.Link>
+                        <NavDropdown title="Categorías" id="collasible-nav-dropdown">
+                            <NavDropdown.Item>
+                                <NavLink id='DropDown' to={`/category/Cafetería`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Cafetería ~</NavLink>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item>
+                                <NavLink id='DropDown' to={`/category/Licuados`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Licuados ~</NavLink>
+                            </NavDropdown.Item>
+                            <NavDropdown.Item>
+                                <NavLink id='DropDown' to={`/category/Jugos`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Jugos ~</NavLink>
+                            </NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                            <NavDropdown.Item>
+                                <NavLink id='DropDown' to={`/category/Delicias`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Delicias ~</NavLink>
+                            </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">Mas Detalles</Nav.Link>
-                        <Nav.Link eventKey={2} href="#desk">
-                            <CartWidget/>
+                        <Nav.Link>
+                            <NavLink to={`/category/Details`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Mas Detalles</NavLink>
                         </Nav.Link>
+                            <NavLink eventKey={2} href="#desk" to={`/category/Mesa`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}><CartWidget/></NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
