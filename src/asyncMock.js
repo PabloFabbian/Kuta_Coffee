@@ -1,5 +1,5 @@
 const products = [
-    {id: '1', name: 'Espresso', price: 932.40, category: 'celular', img: '../Espresso.jpeg', stock: 23, description: '"Poder concentrado, destilado en una gota intensa."'},
+    {id: '1', name: 'Espresso', price: 932.40, category: 'Cafetería', img: '../Espresso.jpeg', stock: 23, description: '"Poder concentrado, destilado en una gota intensa."'},
     {id: '2', name: 'Doppio', price: 1170.60, category: 'Cafetería', img: '../Doppio.png', stock: 15, description: '"Doble esencia de espresso, puro y potente."'},
     {id: '3', name: 'Americano', price: 1094.40, category: 'Cafetería', img: '../Americano.jpeg', stock: 8, description: '"Espresso liberado en un torrente de agua."'},
     {id: '4', name: 'Macchiato', price: 1168.40, category: 'Cafetería', img: '../Macchiato.png', stock: 14, description: '"Toque de espresso coronado con sutileza de leche."'},
