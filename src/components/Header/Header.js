@@ -1,4 +1,5 @@
 import React from 'react'
+import  './Header.css'
 
 function Header() {
     return(
@@ -6,7 +7,6 @@ function Header() {
             <div className='HeaderContainer'>
                 "Explora el arte del café: un sorbo, un mundo." | Kuta, Café de Especialidad ~
             </div>
-
         </header>
     );
 }

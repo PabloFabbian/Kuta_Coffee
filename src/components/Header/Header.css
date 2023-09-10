@@ -1,0 +1,17 @@
+.HeaderContainer{
+    margin-top: 25px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    color: black;
+    background-color: #DAD7CD;
+    box-shadow: 2px 2px 5px #A3B18A;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 10px;
+    font-size: larger;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: 50;
+    font-style: italic;
+}

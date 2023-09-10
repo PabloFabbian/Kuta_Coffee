@@ -1,4 +1,5 @@
 import React from 'react'
+import './NavBar.css'
 
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
@@ -25,6 +26,7 @@ const NavBar = () => {
                         <Nav.Link>
                             <NavLink to={`/category/info2`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Como contactarnos</NavLink>
                         </Nav.Link>
+
                         <NavDropdown title="Categorías" id="collasible-nav-dropdown">
                             <NavDropdown.Item>
                                 <NavLink id='DropDown' to={`/category/Cafetería`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Cafetería ~</NavLink>
@@ -35,7 +37,9 @@ const NavBar = () => {
                             <NavDropdown.Item>
                                 <NavLink id='DropDown' to={`/category/Jugos`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Jugos ~</NavLink>
                             </NavDropdown.Item>
+                            
                             <NavDropdown.Divider />
+                            
                             <NavDropdown.Item>
                                 <NavLink id='DropDown' to={`/category/Delicias`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Delicias ~</NavLink>
                             </NavDropdown.Item>
