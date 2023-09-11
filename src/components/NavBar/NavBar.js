@@ -9,8 +9,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import CartWidget from '../CartWidget/CartWidget'
 import { NavLink, Link } from 'react-router-dom'
 
-
 const NavBar = () => {
+    const scrollToBottom = () => {
+        window.scrollTo(0, document.documentElement.scrollHeight);
+    };
+
     return (
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
             <Container>
@@ -21,27 +24,27 @@ const NavBar = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link>
-                            <NavLink to={`/category/info`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>¿Quienes somos?</NavLink>
+                            <NavLink to={`/about-us`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>¿Quienes somos?</NavLink>
                         </Nav.Link>
                         <Nav.Link>
-                            <NavLink to={`/category/info2`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Como contactarnos</NavLink>
+                            <NavLink onClick={scrollToBottom} className={({isActive}) => 'Option'}>Como contactarnos</NavLink>
                         </Nav.Link>
 
                         <NavDropdown title="Categorías" id="collasible-nav-dropdown">
                             <NavDropdown.Item>
-                                <NavLink id='DropDown' to={`/category/Cafetería`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Cafetería ~</NavLink>
+                                <NavLink id='DropDown' to={`/category/cafeteria`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Cafetería ~</NavLink>
                             </NavDropdown.Item>
                             <NavDropdown.Item>
-                                <NavLink id='DropDown' to={`/category/Licuados`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Licuados ~</NavLink>
+                                <NavLink id='DropDown' to={`/category/licuados`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Licuados ~</NavLink>
                             </NavDropdown.Item>
                             <NavDropdown.Item>
-                                <NavLink id='DropDown' to={`/category/Jugos`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Jugos ~</NavLink>
+                                <NavLink id='DropDown' to={`/category/jugos`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Jugos ~</NavLink>
                             </NavDropdown.Item>
                             
                             <NavDropdown.Divider />
                             
                             <NavDropdown.Item>
-                                <NavLink id='DropDown' to={`/category/Delicias`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Delicias ~</NavLink>
+                                <NavLink id='DropDown' to={`/category/delicias`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Delicias ~</NavLink>
                             </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
@@ -49,7 +52,7 @@ const NavBar = () => {
                         <Nav.Link>
                             <NavLink to={`/category/Details`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Mas Detalles</NavLink>
                         </Nav.Link>
-                            <NavLink eventKey={2} href="#desk" to={`/category/Mesa`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}><CartWidget/></NavLink>
+                            <NavLink eventKey={2} href="#desk" to={`/cart-container`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}><CartWidget/></NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

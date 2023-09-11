@@ -1,7 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
+import { CartContext } from '../../context/CartContext'
 import "./CartItem.css"
 
-const CartItem = ({ id, name, price, quantity, onRemove }) => {
+const CartItem = ({ id, name, price, quantity }) => {
+    const { onRemove } = useContext(CartContext)
+
     const cartItemRef = useRef (null)
 
     useEffect(() => {
@@ -16,7 +19,9 @@ const CartItem = ({ id, name, price, quantity, onRemove }) => {
                 <p>Cantidad: {quantity}</p>
             </div>
             <div className="cart-item-actions">
-                <button onClick={() => onRemove(id)}>Eliminar</button>
+                <button onClick={() => onRemove(id)}>
+                    Eliminar
+                </button>
             </div>
         </div>
     );

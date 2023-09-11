@@ -5,9 +5,10 @@ import NavBar from "./components/NavBar/NavBar";
 import Header from "./components/Header/Header";
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import Cart from './components/Cart/Cart'
-
 import { CartProvider } from './context/CartContext';
+import Footer from './components/Footer/Footer';
+import AboutUs from './components/AboutUs/AboutUs';
+import Cart from './components/Cart/Cart'
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
           <Header greeting={'Explora el arte del café: un sorbo, un mundo. | Kuta, Café de Especialidad'}/>
           <Routes>
             <Route path='/' element={<ItemListContainer />}/>
+            <Route path='/about-us' element={<AboutUs />}/>
+            <Route path='/cart-container' element={<Cart />}/>
             <Route path='/category/:categoryId' element={<ItemListContainer />} />
             <Route path='/item/:itemId' element={<ItemDetailContainer />} />
             <Route path='/cart' element={<Cart />} />
@@ -25,6 +28,7 @@ function App() {
           </Routes>
         </CartProvider>
       </BrowserRouter>
+      <Footer />
     </div>
   )
 }

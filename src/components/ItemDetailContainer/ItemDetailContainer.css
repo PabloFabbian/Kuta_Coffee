@@ -1,0 +1,14 @@
+.ItemDetailContainer {
+    margin-left: 29.9%;
+}
+
+.ItemDetailContainer .CardItem{
+    padding-left: 100px;
+    padding-right: 100px;
+    width: 70vh;
+}
+
+.ItemDetailContainer .CardItem img{
+    max-width: 35vh;
+
+}

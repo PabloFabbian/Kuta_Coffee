@@ -1,0 +1,102 @@
+.about-us {
+    padding: 40px;
+    background-color: #DAD7CD;
+    color: #344E41;
+    text-align: center;
+}
+
+.about-us-header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #588157;
+}
+
+.about-us-header p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #A3B18A;
+}
+
+.about-us-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.about-us-text {
+    text-align: left;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.about-us-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.about-us-values h2 {
+    font-size: 24px;
+    color: #3A5A40;
+    margin-bottom: 20px;
+}
+
+.about-us-values ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.about-us-values li {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #344E41;
+    text-align: center;
+}
+
+.about-us-team h2 {
+    font-size: 24px;
+    color: #3A5A40;
+    margin-bottom: 20px;
+}
+
+.about-us-contact h2 {
+    font-size: 24px;
+    color: #3A5A40;
+    margin-bottom: 20px;
+}
+
+.about-us-contact p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #344E41;
+}
+
+.carousel-control-next, .carousel-control-prev{
+    background-color: #344E41;
+}
+
+.carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item img {
+    max-width: 35%;
+    height: auto;
+}
+
+.active {
+    animation: fadeIn 1s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    15% {
+        opacity: 0.15;
+    }
+    100% {
+        opacity: 1;
+    }
+}
