@@ -31,11 +31,12 @@
 
 .social-icons i{
     color: #A3B18A;
-    font-size: 40px;
-    margin: 0 20px;
+    margin: 15px 20px;
     text-decoration: none;
     transition: transform 0.4s, color 0.4s;
     display: inline-block;
+    background-color: #3A5A40;
+    font-size: 4vh;
 }
 
 social-icons i:hover{

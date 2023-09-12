@@ -11,19 +11,19 @@ function Footer() {
                 <div className="footer-contact">
                     <h2>Contacto</h2>
                     <p>📍 Dirección: José Manuel Estrada 2591 - Olivos</p>
-                    <p>🕔 Horario: Lunes a viernes 8.30 a 19 hs - Sabados 9 a 14hs</p>
+                    <p>🕔 Horario: Lunes a viernes 8:30 a 19 hs - Sabados 9 a 14hs</p>
                     <p>📩 Email: kuta.cafeteria@gmail.com</p>
                 </div>
                 <div className="footer-social">
                     <h2>Síguenos en Redes Sociales</h2>
                     <div className="social-icons">
-                        <a href="#" target="_blank" rel="noopener noreferrer">
+                        <a href="/#">
                             <i className="fab fa-facebook"></i>
                         </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/kuta_cafe/" target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-instagram"></i>
                         </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer">
+                        <a href="/#" target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-twitter"></i>
                         </a>
                     </div>

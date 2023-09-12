@@ -1,0 +1,67 @@
+.Container {
+    background-color: #DAD7CD;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #344E41;
+    font-family: Arial, sans-serif;
+    margin: 5vh 60vh 5vh 60vh;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #344E41;
+}
+
+.Form {
+    padding: 6vh 0vh 6vh 0vh;
+    margin: 5vh 28vh 5vh 28vh;
+    border-radius: 10px;
+}
+
+.Label {
+    display: block;
+    margin-bottom: 10px;
+    color: #588157;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.Input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #3A5A40;
+    border-radius: 5px;
+    background-color: #DAD7CD;
+    color: #344E41;
+    font-size: 14px;
+}
+
+.Button {
+    background-color: #588157;
+    color: #DAD7CD;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14.5px;
+    transition: background-color 0.3s ease-in-out;
+    border-color: #344E41;
+}
+
+.Button:hover {
+    background-color: #3A5A40;
+    border-color: #344E41;
+}
+
+.ErrorMessage {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.OrderId {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}

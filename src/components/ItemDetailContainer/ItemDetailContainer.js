@@ -1,7 +1,6 @@
 import './ItemDetailContainer.css'
 import { useState, useEffect } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
-import ItemList from '../ItemList/ItemList'
 
 import { useParams } from 'react-router-dom'
 
@@ -32,6 +31,10 @@ const ItemDetailContainer = () => {
                 setLoading(false)
             })
     }, [itemId])
+
+    if(loading) {
+        return <div>Cargando...</div>
+    }
 
     return(
         <div className='ItemDetailContainer'>

@@ -32,12 +32,12 @@ body {
     border-radius: 5px;
     font-size: 0.9rem;
     margin-left: 10px;
+    border-color: #344E41;
 }
 
 .Button:hover {
     background-color: #75b380a2;
 }
-
 
 .Option {
     text-decoration: none;
@@ -46,11 +46,12 @@ body {
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 0.9rem;
-    margin-top: 0.55vh;
-    padding-top: 1.05vh;
+    padding-top: 1.1vh;
     padding-left: 3.5vh;
     padding-right: 3.5vh;
-    padding-bottom: 1.05vh;
+    padding-bottom: 1.1vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 .Option:hover {

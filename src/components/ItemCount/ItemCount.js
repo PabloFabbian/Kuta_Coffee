@@ -24,7 +24,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
                 <button className='Button' onClick={increment}>+</button>
             </div>
             <div>
-                <button className='Button' onClick={() => onAdd(quantity)} disabled={!stock}>
+                <button className='Option' onClick={() => onAdd(quantity)} disabled={!stock}>
                     Agregar a la mesa
                 </button>
             </div>

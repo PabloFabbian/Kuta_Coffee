@@ -26,7 +26,7 @@ const Cart = () => {
             <div className='cart-content'>
                 <h3>Total: ${total.toFixed(2)}</h3>
                 <button onClick={() => clearCart()} className='Button'>Limpiar Carrito</button>
-                <Link to='/checkout' className='Option'>Checkout</Link>
+                <Link to='/checkout' className='Button'>Checkout</Link>
             </div>
         </div>
     );

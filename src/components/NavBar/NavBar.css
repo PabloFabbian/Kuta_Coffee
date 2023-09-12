@@ -8,13 +8,17 @@
     border-radius: 10px;
 }
 
-.ActiveOption {
+a .ActiveOption {
     text-decoration: none;
-    color: antiquewhite;
+    color: white;
     background-color: #A3B18A;
     border-radius: 5px;
-    padding: 8.5px 18px 8.5px 17px;
+    padding: 9px 18px 8.5px 17px;
     font-size: 14px;
+}
+
+.ActiveOption{
+    margin-top: 10vh;
 }
 
 .kuta {
@@ -32,7 +36,7 @@
 
 #DropDown{
     text-decoration: none;
-    background-color:transparent;
+    background-color: transparent;
     padding: 4px, 0px;
 }
 

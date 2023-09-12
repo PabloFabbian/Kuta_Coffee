@@ -52,7 +52,9 @@ const NavBar = () => {
                         <Nav.Link>
                             <NavLink to={`/category/Details`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Mas Detalles</NavLink>
                         </Nav.Link>
+                        <Nav.Link>
                             <NavLink eventKey={2} href="#desk" to={`/cart-container`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}><CartWidget/></NavLink>
+                        </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
