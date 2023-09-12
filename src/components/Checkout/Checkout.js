@@ -4,21 +4,24 @@ import { collection, getDocs, query, where, writeBatch, addDoc, Timestamp, docum
 import { db } from '../../services/firebase/firebaseConfig';
 
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
+import './Checkout.css'
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false);
     const [orderId, setOrderId] = useState('');
 
-    const { cart, total, clearCart } = useContext(CartContext);
+    const { cart, clearCart } = useContext(CartContext);
 
     const createOrder = async ({ name, phone, email }) => {
         setLoading(true);
 
         try {
+            const total = cart.reduce((acc, product) => {
+                return acc + (product.price * product.quantity);
+            }, 0);
+            
             const objOrder = {
-                buyer: {
-                    name, phone, email,
-                },
+                buyer: { name, phone, email, },
                 items: cart,
                 total: total,
                 date: Timestamp.fromDate(new Date())
@@ -32,7 +35,7 @@ const Checkout = () => {
 
             const productsRef = collection(db, 'products')
 
-            const productsAddedFromFirestore = await getDocs(query(productsRef, where (documentId(), 'in', ids)))
+            const productsAddedFromFirestore = await getDocs(query(productsRef, where(documentId(), 'in', ids)))
 
             const { docs } = productsAddedFromFirestore
 
@@ -46,7 +49,7 @@ const Checkout = () => {
                 if(stockDb >= prodQuantity) {
                     batch.update(doc.ref, { stock: stockDb - prodQuantity })
                 } else {
-                    outOfStock.push({id: doc.id, ...dataDoc})
+                    outOfStock.push({ id: doc.id, ...dataDoc })
                 }
             })
 
@@ -60,7 +63,7 @@ const Checkout = () => {
                 setOrderId(orderAdded.id)
                 clearCart()
             } else {
-                console.error('Hay productos que estan fuera de Stock')
+                console.error('Hay productos que están fuera de Stock')
             }
         
         } catch(error) {
@@ -68,22 +71,25 @@ const Checkout = () => {
         } finally {
             setLoading(false)
         }
+    
     }
 
     if (loading) {
-        return <h1>Se está generando su orden...</h1>
+        return <div className="centered-content"><h1>Se está generando su orden...</h1></div>;
     }
-
+    
     if (orderId) {
-        return <h1>El ID de su Orden es: {orderId}</h1>
+        return <div className="centered-content"><h1>El ID de su Orden es: {orderId}</h1></div>;
     }
-
+    
     return (
         <div>
-            <h1>Checkout</h1>
-            <CheckoutForm onConfirm={createOrder}/>
+            <div className="centered-content">
+                <h1>Checkout</h1>
+            </div>
+            <CheckoutForm onConfirm={createOrder} />
         </div>
-    )
+    );
 }
 
 export default Checkout;
