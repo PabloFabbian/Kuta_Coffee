@@ -24,9 +24,17 @@ const ItemDetailContainer = () => {
                 const productAdapted = { id: response.id, ...data }
                 setProduct(productAdapted)
             })
-            .catch(error => {
-                console.error(error)
-            })
+            .catch(
+                toast.error('🦄 ¡Ocurrió un error inesperado!', {
+                    position: "bottom-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    }))
             .finally(() => {
                 setLoading(false)
             })

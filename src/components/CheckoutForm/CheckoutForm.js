@@ -23,6 +23,7 @@ const CheckoutForm = ({ onConfirm }) => {
                     <label htmlFor='name' className='Label'>
                         Nombre
                         <input
+                            required
                             id='name'
                             className='Input form-control'
                             type='text'
@@ -35,6 +36,7 @@ const CheckoutForm = ({ onConfirm }) => {
                     <label htmlFor='phone' className='Label'>
                         Telefono
                         <input
+                            required
                             id='phone'
                             className='Input form-control'
                             type='text'
@@ -47,6 +49,7 @@ const CheckoutForm = ({ onConfirm }) => {
                     <label htmlFor='email' className='Label'>
                         Email
                         <input
+                            required
                             id='email'
                             className='Input form-control'
                             type='text'

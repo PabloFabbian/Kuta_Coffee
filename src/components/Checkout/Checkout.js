@@ -63,11 +63,29 @@ const Checkout = () => {
                 setOrderId(orderAdded.id)
                 clearCart()
             } else {
-                console.error('Hay productos que están fuera de Stock')
+                toast.warn('🦄 ¡Producto fuera de Stock!', {
+                    position: "bottom-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    })
             }
         
         } catch(error) {
-            console.log(error)
+            toast.error('🦄 ¡Ocurrió un error inesperado!', {
+                position: "bottom-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                })
         } finally {
             setLoading(false)
         }

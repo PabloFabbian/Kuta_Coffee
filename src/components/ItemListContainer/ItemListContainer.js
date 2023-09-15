@@ -29,9 +29,17 @@ const ItemListContainer = ({ greeting }) => {
                 })
                 setProducts(productsAdapted)
             })
-            .catch(error => {
-                console.log(error)
-            })
+            .catch(
+                toast.error('🦄 ¡Ocurrió un error inesperado!', {
+                    position: "bottom-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                    }))
             .finally(() => {
                 setLoading(false)
             })
