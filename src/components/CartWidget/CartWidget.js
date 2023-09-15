@@ -1,5 +1,4 @@
 import React from 'react';
-import './CartWidget.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMugHot } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
