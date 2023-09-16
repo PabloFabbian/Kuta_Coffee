@@ -1,9 +1,11 @@
-import { CartContext } from '../../context/CartContext';
-import { useContext, useState } from 'react';
 import { collection, getDocs, query, where, writeBatch, addDoc, Timestamp, documentId } from 'firebase/firestore'
+import { toast } from 'react-toastify';
+import { useContext, useState } from 'react';
+import { CartContext } from '../../context/CartContext';
 import { db } from '../../services/firebase/firebaseConfig';
 
 import CheckoutForm from '../CheckoutForm/CheckoutForm';
+import 'react-toastify/dist/ReactToastify.css';
 import './Checkout.css'
 
 const Checkout = () => {
@@ -14,6 +16,32 @@ const Checkout = () => {
 
     const createOrder = async ({ name, phone, email }) => {
         setLoading(true);
+
+    const ToastWarn = () => {
+        toast.warn('🦄 ¡Producto fuera de Stock!', {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            })
+    }
+
+    const ToastError = () => {
+        toast.error('🦄 ¡Ocurrió un error inesperado!', {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            })
+    }
 
         try {
             const total = cart.reduce((acc, product) => {
@@ -63,29 +91,11 @@ const Checkout = () => {
                 setOrderId(orderAdded.id)
                 clearCart()
             } else {
-                toast.warn('🦄 ¡Producto fuera de Stock!', {
-                    position: "bottom-center",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                    })
+                ToastWarn()
             }
         
         } catch(error) {
-            toast.error('🦄 ¡Ocurrió un error inesperado!', {
-                position: "bottom-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "dark",
-                })
+            ToastError()
         } finally {
             setLoading(false)
         }

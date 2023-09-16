@@ -50,10 +50,10 @@ const NavBar = () => {
                     </Nav>
                     <Nav>
                         <Nav.Link>
-                            <NavLink to={`/category/Details`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Mas Detalles</NavLink>
+                            <NavLink to={`/more-details`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}>Mas Detalles</NavLink>
                         </Nav.Link>
                         <Nav.Link>
-                            <NavLink eventKey={2} href="#desk" to={`/cart-container`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}><CartWidget/></NavLink>
+                            <NavLink to={`/cart-container`} className={({isActive}) => isActive ? 'ActiveOption' : 'Option'}><CartWidget/></NavLink>
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>

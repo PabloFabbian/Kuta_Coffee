@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { getDoc, doc } from 'firebase/firestore'
 import { db } from '../../services/firebase/firebaseConfig'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './AboutUs.css'
 
 import Carousel from 'react-bootstrap/Carousel';
@@ -9,6 +11,32 @@ const AboutUs = () => {
     const [images, setImages] = useState([])
     const [loading, setLoading] = useState(true)
 
+    const ToastError = () => {
+        toast.error('🦄 Error al obtener el documento "local":', {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            })
+    }
+
+    const ToastError2 = () => {
+        toast.error('🦄 El documento "local" no existe en la colección "cafeteria"', {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            })
+    }
+
     useEffect(() => {
         const docRef = doc(db, 'cafeteria', 'local')
 
@@ -16,17 +44,16 @@ const AboutUs = () => {
             .then((docSnapshot) => {
                 if (docSnapshot.exists()) {
                     const data = docSnapshot.data()
-
                     const imageUrls = [data.capuccino , data.dentro, data.fuera, data.servicio]
                     setImages(imageUrls)
                     setLoading(false)
                 } else {
-                    console.error('El documento "local" no existe en la colección "cafeteria".')
+                    ToastError2()
                     setLoading(false)
                 }
             })
             .catch((error) => {
-                console.error('Error al obtener el documento "local":', error)
+                ToastError(error)
                 setLoading(false)
             })
     }, [])

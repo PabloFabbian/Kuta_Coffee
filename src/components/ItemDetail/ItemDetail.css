@@ -1,0 +1,10 @@
+.continue-shopping-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none;
+    align-items: center;
+    margin-right: 15px;
+    margin-left: -16px;
+}

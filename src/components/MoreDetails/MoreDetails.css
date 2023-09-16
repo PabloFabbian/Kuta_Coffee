@@ -1,0 +1,57 @@
+.more-details {
+    background-color: #DAD7CD;
+    padding-top: 2.5vh;
+    color: #344E41;
+    padding-bottom: 5vh;
+    margin-left: 4.5vh;
+    margin-right: 4.5vh;
+    margin-bottom: 3.5vh;
+    border-radius: 2vh;
+    box-shadow: 2px 2px 5px #A3B18A;
+}
+
+.section-title {
+    color: #A3B18A;
+    padding-bottom: 0.5vh;
+    cursor: default;
+}
+
+.section-title hr {
+    margin-bottom: 5vh;
+}
+
+.offering-card {
+    background-color: #588157;
+    color: #fff;
+    margin-bottom: 20px;
+    padding-left: 1vh;
+    padding-right: 1vh;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.offering-card:hover {
+    background-color: #3A5A40;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#Day-Offer {
+    padding-bottom: 2.45vh;
+}
+
+.sustainability-container,
+.private-events-container {
+    background-color: #3A5A40;
+    color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.sustainability-container:hover,
+.private-events-container:hover {
+    background-color: #588157;
+    transform: scale(1.05);
+    cursor: pointer;
+}

@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer';
 import AboutUs from './components/AboutUs/AboutUs';
 import Cart from './components/Cart/Cart'
 import Checkout from './components/Checkout/Checkout';
+import MoreDetails from './components/MoreDetails/MoreDetails';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path='/cart-container' element={<Cart />}/>
             <Route path='/category/:categoryId' element={<ItemListContainer />} />
             <Route path='/item/:itemId' element={<ItemDetailContainer />} />
+            <Route path='/more-details' element={<MoreDetails />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/checkout' element={<Checkout />} />
             <Route path='*' element={<h1>404 NOT FOUND</h1>} />
