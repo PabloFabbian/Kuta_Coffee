@@ -6,10 +6,9 @@
     padding: 16px;
     width: 300px;
     background-color: rgb(238, 238, 238);
-    display:inline-flex;
+    display: inline-flex;
     flex-direction: column;
     text-align: center;
-    margin-left: 6vh;
     margin-bottom: 2.5vh;
 }
 

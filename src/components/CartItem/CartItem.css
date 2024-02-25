@@ -11,6 +11,14 @@
     margin-bottom: 2vh;
 }
 
+.cart-item-image img {
+    max-width: 100px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    border-radius: 5%;
+}
+
 .cart-item-details {
     flex-grow: 1;
 }  

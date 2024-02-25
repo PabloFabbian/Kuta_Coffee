@@ -17,7 +17,7 @@ function App() {
       <BrowserRouter>
         <CartProvider>
           <NavBar />
-          <Header greeting={'Explora el arte del café: un sorbo, un mundo. | Kuta, Café de Especialidad'}/>
+          <Header />
           <Routes>
             <Route path='/' element={<ItemListContainer />}/>
             <Route path='/about-us' element={<AboutUs />}/>
