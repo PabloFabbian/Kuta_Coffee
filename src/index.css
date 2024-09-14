@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *{padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -5,4 +9,8 @@
 
 body{
     background-color: #588157;
+}
+
+#menu {
+    scroll-margin-top: 125px;
 }

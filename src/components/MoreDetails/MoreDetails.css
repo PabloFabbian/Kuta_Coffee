@@ -1,3 +1,4 @@
+/* Estilos principales */
 .more-details {
     background-color: #DAD7CD;
     padding-top: 2.5vh;
@@ -10,6 +11,7 @@
     box-shadow: 2px 2px 5px #A3B18A;
 }
 
+/* Título de sección */
 .section-title {
     color: #A3B18A;
     padding-bottom: 0.5vh;
@@ -20,38 +22,66 @@
     margin-bottom: 5vh;
 }
 
-.offering-card {
-    background-color: #588157;
-    color: #fff;
-    margin-bottom: 20px;
-    padding-left: 1vh;
-    padding-right: 1vh;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.offering-card:hover {
-    background-color: #3A5A40;
-    transform: scale(1.05);
-    cursor: pointer;
-}
-
-#Day-Offer {
-    padding-bottom: 2.45vh;
-}
-
-.sustainability-container,
+/* Estilos de las tarjetas */
+.offering-card, 
+.sustainability-container, 
 .private-events-container {
-    background-color: #3A5A40;
+    background-color: #588157;
     color: #fff;
     padding: 20px;
-    margin-top: 20px;
     border-radius: 10px;
     transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
 }
 
-.sustainability-container:hover,
+.offering-card:hover, 
+.sustainability-container:hover, 
 .private-events-container:hover {
-    background-color: #588157;
+    background-color: #3A5A40;
     transform: scale(1.05);
-    cursor: pointer;
+}
+
+/* Bento Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.bento-grid .offering-card:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.bento-grid .offering-card:nth-child(2) {
+    grid-column: span 2;
+}
+
+.bento-grid .sustainability-container {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.bento-grid .private-events-container {
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+/* Estilo adicional para la imagen y el título */
+.more-details img {
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.more-details h2 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(58, 90, 64, 0.7);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 36px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }

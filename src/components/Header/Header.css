@@ -1,17 +1,19 @@
 .HeaderContainer{
-    margin-top: 25px;
+    margin-top: -30px;
     margin-bottom: 30px;
-    margin-left: 40px;
-    margin-right: 40px;
+    margin-left: 26px;
+    margin-right: 26px;
     color: black;
-    background-color: #DAD7CD;
+    background-color: rgba(218, 215, 205, 0.75);
     box-shadow: 2px 2px 5px #A3B18A;
     text-align: center;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 70px;
+    padding-bottom: 30px;
     border-radius: 10px;
     font-size: larger;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-weight: 50;
     font-style: italic;
+    position: relative;
+    z-index: 20;
 }
