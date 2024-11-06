@@ -1,9 +1,36 @@
-.centered-content {
-    align-items: center;
-    height: 6.5vh;
-    text-align: center;
+/* Estilos adicionales para las imágenes a la derecha del ticket */
+.order-images {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    /* Espacio desde el borde superior */
+    margin-right: 10px;
+    /* Espacio desde el borde derecho */
 }
 
-.btn-primary {
-    margin-left: 14.5vh;
+.image-item {
+    width: 80px;
+    /* Tamaño de la imagen */
+    height: 80px;
+    /* Tamaño de la imagen */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra detrás de la imagen */
+}
+
+.image-item p {
+    margin-top: 8px;
+    font-size: 0.875rem;
+    color: #4A4A4A;
 }

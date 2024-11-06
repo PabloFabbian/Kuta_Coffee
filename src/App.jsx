@@ -46,7 +46,7 @@ function App() {
 function HeaderConditional() {
   const location = useLocation();
   const showHeader = location.pathname === '/' || location.pathname.startsWith('/category/');
-  
+
   return showHeader ? <Header /> : null;
 }
 

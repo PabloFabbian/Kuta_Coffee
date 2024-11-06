@@ -19,7 +19,7 @@ const MoreDetails = () => {
                             alt="Máquina de café"
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center backdrop-blur-sm">
+                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center backdrop-blur-[2px]">
                             <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-left px-4 drop-shadow-lg">
                                 Programa de Lealtad y Ofertas
                             </h2>

@@ -1,65 +1,81 @@
-import './CheckoutForm.css'
-import { useState } from 'react'
+import './CheckoutForm.css';
+import { useState } from 'react';
 
 const CheckoutForm = ({ onConfirm }) => {
-    const [name, setName] = useState('')
-    const [phone, setPhone] = useState('')
-    const [email, setEmail] = useState('')
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
 
     const handleConfirm = (event) => {
-        event.preventDefault()
+        event.preventDefault();
 
-        const userData = {
-            name, phone, email
-        };
+        const userData = { name, phone, email };
 
         onConfirm(userData);
     };
 
+    const handlePhoneChange = (event) => {
+        // Eliminar caracteres no numéricos
+        let value = event.target.value.replace(/\D/g, "");
+
+        // Formatear el número según el formato "11 6852-9993"
+        if (value.length <= 2) {
+            value = value.replace(/(\d{2})/, "$1");
+        } else if (value.length <= 6) {
+            value = value.replace(/(\d{2})(\d{4})/, "$1 $2");
+        } else {
+            value = value.replace(/(\d{2})(\d{4})(\d{4})/, "$1 $2-$3");
+        }
+
+        setPhone(value);
+    };
+
     return (
-        <div className='Container'>
-            <form onSubmit={handleConfirm} className='Form'>
-                <div className='mb-3'>
-                    <label htmlFor='name' className='Label'>
+        <div className='form-container'>
+            <form onSubmit={handleConfirm} className='form'>
+                <h2 className="form-title">¡Casi Listo para tu Café!</h2>
+                <div className='input-group'>
+                    <label htmlFor='name' className='label'>
                         Nombre
                         <input
                             required
                             id='name'
-                            className='Input form-control'
+                            className='input'
                             type='text'
                             value={name}
                             onChange={({ target }) => setName(target.value)}
                         />
                     </label>
                 </div>
-                <div className='mb-3'>
-                    <label htmlFor='phone' className='Label'>
-                        Telefono
+                <div className='input-group'>
+                    <label htmlFor='phone' className='label'>
+                        Teléfono
                         <input
                             required
                             id='phone'
-                            className='Input form-control'
+                            className='input'
                             type='text'
                             value={phone}
-                            onChange={({ target }) => setPhone(target.value)}
+                            onChange={handlePhoneChange} // Usar el manejador con el formato
+                            maxLength="15" // Limitar la longitud del campo a 15 caracteres
                         />
                     </label>
                 </div>
-                <div className='mb-3'>
-                    <label htmlFor='email' className='Label'>
+                <div className='input-group'>
+                    <label htmlFor='email' className='label'>
                         Email
                         <input
                             required
                             id='email'
-                            className='Input form-control'
-                            type='text'
+                            className='input'
+                            type='email'
                             value={email}
                             onChange={({ target }) => setEmail(target.value)}
                         />
                     </label>
                 </div>
-                <div className='Label mb-3'>
-                    <button type='submit' className='Button btn btn-primary'>Crear Orden</button>
+                <div className='submit-btn'>
+                    <button type='submit' className='btn-submit'>Crear Orden</button>
                 </div>
             </form>
         </div>
