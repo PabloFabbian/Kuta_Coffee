@@ -20,8 +20,8 @@ const Cart = () => {
                 <p className="text-lg text-white mb-6 text-center">
                     ¡Parece que tu carrito está vacío! Encuentra nuestros productos más deliciosos y regresa con algo especial.
                 </p>
-                <Link 
-                    to="/" 
+                <Link
+                    to="/"
                     className="bg-[#F4A261] text-[#2F4F4F] py-3 px-6 rounded-lg shadow-lg hover:bg-[#E08D6D] transition-colors duration-300 text-xl font-semibold"
                 >
                     Explorar Productos
@@ -31,12 +31,26 @@ const Cart = () => {
     }
 
     return (
-        <div className='cart-container'>
-        {cart.map(p => <CartItem key={p.id} {...p} />)}
-            <div className='cart-content'>
-                <h3>Total: ${total.toFixed(2)}</h3>
-                <button onClick={() => clearCart()} className='Button'>Limpiar Carrito</button>
-                <Link to='/checkout' className='Button'>Checkout</Link>
+        <div className="cart-container">
+            <div className="cart-items">
+                {cart.map(p => <CartItem key={p.id} {...p} />)}
+            </div>
+            <div className="cart-content flex items-center justify-between p-4 bg-[#F0EEE8]">
+                <h3 className="cart-total text-2xl font-normal text-[#344E41]">Total: ${total.toFixed(2)}</h3>
+                <div className="flex gap-2">
+                    <button
+                        onClick={() => clearCart()}
+                        className="button-clear-cart bg-[#588157] text-white py-2 px-4 rounded-md hover:bg-[#466A45] transition duration-300"
+                    >
+                        Vaciar Carrito
+                    </button>
+                    <Link
+                        to='/checkout'
+                        className="button-checkout bg-[#344E41] text-white py-2 px-4 rounded-md hover:bg-[#2B3C36] transition duration-300"
+                    >
+                        Pagar
+                    </Link>
+                </div>
             </div>
         </div>
     );

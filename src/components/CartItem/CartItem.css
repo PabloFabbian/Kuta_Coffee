@@ -6,9 +6,7 @@
     background-color: #DAD7CD;
     border: 1px solid #A3B18A;
     border-radius: 8px;
-    margin-left: 4.5vh;
-    margin-right: 4.5vh;
-    margin-bottom: 2vh;
+    margin-inline: 1.5rem;
 }
 
 .cart-item-image img {
@@ -21,7 +19,7 @@
 
 .cart-item-details {
     flex-grow: 1;
-}  
+}
 
 .cart-item-details h2 {
     font-size: 1.4rem;
@@ -51,15 +49,84 @@
     background-color: #588157;
 }
 
-.fade-in{
+.fade-in {
     animation: fadeIn 0.5s ease-in-out;
 }
 
-@keyframes fadeIn{
+@keyframes fadeIn {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Ajusta el espacio entre los botones y la cantidad */
+}
+
+.quantity-controls span {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #344E41;
+}
+
+.confirm-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 10px;
+}
+
+.check-icon,
+.cross-icon {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #588157;
+}
+
+.check-icon:hover {
+    color: #3A5A40;
+}
+
+.cross-icon:hover {
+    color: #A3B18A;
+}
+
+.confirm-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #DAD7CD;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+}
+
+.confirm-button {
+    background-color: #588157;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-inline: 4.5px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background-color: #A3B18A;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-inline: 4.5px;
+    cursor: pointer;
 }
