@@ -2,15 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-*{padding: 0;
+* {
+    padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: #588157;
 }
 
 #menu {
+    scroll-margin-top: 125px;
+}
+
+#about {
     scroll-margin-top: 125px;
 }

@@ -1,22 +1,30 @@
-/* src/components/HeroSection/heroSection.css */
+/* Wrapper del hero - ocupa toda la pantalla desde arriba */
+.hero-section-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    margin-top: -120px;
+    /* Compensa el espacio que normalmente ocuparía el navbar */
+    padding-top: 0;
+}
 
-.hero-section {
+/* Contenido del hero */
+.hero-section-content {
     position: relative;
     width: 100%;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
-    z-index: 1;
 }
 
-.hero-section img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
+/* Mobile adjustments */
+@media (max-width: 991px) {
+    .hero-section-wrapper {
+        margin-top: -100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section-wrapper {
+        margin-top: -90px;
+    }
 }

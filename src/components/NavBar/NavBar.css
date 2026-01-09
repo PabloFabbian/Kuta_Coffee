@@ -3,10 +3,11 @@
     top: 15px;
     left: 26px;
     right: 26px;
-    box-shadow: 4px 4px 15px 5px rgba(163, 177, 138, 0.6); /* Ajustado el brillo y el tamaño de la sombra */
+    box-shadow: 4px 4px 15px 5px rgba(163, 177, 138, 0.6);
     padding: 10px;
     border-radius: 10px;
     background-color: #212529;
+    z-index: 1000;
 }
 
 .navbar-brand img {

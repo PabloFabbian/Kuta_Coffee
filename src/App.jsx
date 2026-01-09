@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import NavBar from "./components/NavBar/NavBar";
 import Header from "./components/Header/Header";
 import HeroSection from './components/HeroSection/HeroSection';
+import Story from './components/Story/Story';
+import Menu from './components/Menu/Menu';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { CartProvider } from './context/CartContext';
@@ -20,18 +22,26 @@ function App() {
           <NavBar />
           <HeaderConditional />
           <Routes>
+            {/* Home con nuevo flujo QR */}
             <Route path='/' element={
               <>
                 <HeroSection />
-                <ItemListContainer style={{ padding: '2rem 0' }} />
+                <Story />
+                <Menu />
               </>
             } />
+
+            {/* Rutas de categorías - ahora manejan filtros via URL */}
+            <Route path='/category/:categoryId' element={
+              <ItemListContainer />
+            } />
+
+            {/* Otras rutas */}
             <Route path='/about-us' element={<AboutUs />} />
-            <Route path='/cart-container' element={<Cart />} />
-            <Route path='/category/:categoryId' element={<ItemListContainer />} />
             <Route path='/item/:itemId' element={<ItemDetailContainer />} />
             <Route path='/more-details' element={<MoreDetails />} />
             <Route path='/cart' element={<Cart />} />
+            <Route path='/cart-container' element={<Cart />} />
             <Route path='/checkout' element={<Checkout />} />
             <Route path='*' element={<h1>404 NOT FOUND</h1>} />
           </Routes>
@@ -42,7 +52,7 @@ function App() {
   );
 }
 
-// Componente que usa el hook useLocation para renderizar Header basado en la ruta
+// Componente que renderiza Header solo en rutas específicas
 function HeaderConditional() {
   const location = useLocation();
   const showHeader = location.pathname === '/' || location.pathname.startsWith('/category/');
