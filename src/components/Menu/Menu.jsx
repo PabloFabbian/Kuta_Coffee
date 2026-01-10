@@ -7,39 +7,32 @@ const Menu = () => {
     const [activeCategory, setActiveCategory] = useState('all');
 
     const categories = [
-        { id: 'all', label: 'Todo', icon: '☕' },
-        { id: 'cafeteria', label: 'Cafetería', icon: '☕' },
-        { id: 'licuados', label: 'Licuados', icon: '🥤' },
-        { id: 'jugos', label: 'Jugos', icon: '🧃' },
-        { id: 'delicias', label: 'Delicias', icon: '🍰' },
+        { id: 'all', label: 'Todo' },
+        { id: 'cafeteria', label: 'Cafetería' },
+        { id: 'licuados', label: 'Licuados' },
+        { id: 'jugos', label: 'Jugos' },
+        { id: 'delicias', label: 'Delicias' },
     ];
 
     return (
         <section className="menu-wrapper" id="menu">
             <div className="menu-container">
-                {/* Header del menú */}
+                {/* Header minimalista */}
                 <motion.div
                     className="menu-header"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                 >
-                    <h2 className="menu-title">Nuestro Menú</h2>
-                    <p className="menu-description">
-                        Explorá nuestros productos, seleccioná lo que te guste y hacé tu pedido
-                        directo desde tu celular
+                    <h2 className="menu-title">Menú Kuta</h2>
+                    <p className="menu-subtitle">
+                        Seleccioná tu categoría y hacé tu pedido
                     </p>
                 </motion.div>
 
-                {/* Filtros */}
-                <motion.div
-                    className="filters-container"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                >
+                {/* Filtros minimalistas */}
+                <div className="filters-container">
                     <div className="filters-scroll">
                         {categories.map((category) => (
                             <button
@@ -47,14 +40,15 @@ const Menu = () => {
                                 onClick={() => setActiveCategory(category.id)}
                                 className={`filter-btn ${activeCategory === category.id ? 'active' : ''}`}
                             >
-                                <span className="filter-icon">{category.icon}</span>
-                                <span className="filter-label">{category.label}</span>
+                                <span className="filter-btn-text">{category.label}</span>
                             </button>
                         ))}
+                        {/* Espacio adicional para mejor scroll en mobile */}
+                        <div className="scroll-spacer"></div>
                     </div>
-                </motion.div>
+                </div>
 
-                {/* ItemListContainer con categoría filtrada */}
+                {/* Productos */}
                 <ItemListContainer categoryFilter={activeCategory} />
             </div>
         </section>

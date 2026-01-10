@@ -23,19 +23,19 @@
 }
 
 /* Estilos de las tarjetas */
-.offering-card, 
-.sustainability-container, 
+.offering-card,
+.sustainability-container,
 .private-events-container {
     background-color: #588157;
-    color: #fff;
+    color: rgba(238, 238, 238, 0.9);
     padding: 20px;
     border-radius: 10px;
     transition: background-color 0.3s, transform 0.3s;
     cursor: pointer;
 }
 
-.offering-card:hover, 
-.sustainability-container:hover, 
+.offering-card:hover,
+.sustainability-container:hover,
 .private-events-container:hover {
     background-color: #3A5A40;
     transform: scale(1.05);
@@ -82,6 +82,6 @@
     padding: 10px 20px;
     border-radius: 8px;
     font-size: 36px;
-    color: white;
+    color: rgba(238, 238, 238, 0.9);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }

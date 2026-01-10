@@ -1,164 +1,378 @@
+/* Estilos base para ambos */
 .CardItem {
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    background: rgba(238, 238, 238, 0.9);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    width: 100%;
-    max-width: 350px;
-    margin: 20px auto;
-}
-
-.CardItem:active {
-    transform: scale(0.98);
-}
-
-/* Imagen y precio badge */
-.card-image-wrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4/3;
-    background: #f5f5f5;
-    overflow: hidden;
-}
-
-.ItemImg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.CardItem:hover .ItemImg {
-    transform: scale(1.05);
-}
-
-.price-badge {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 8px 16px;
-    border-radius: 50px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    display: flex;
-    align-items: baseline;
-    gap: 2px;
-}
-
-.price-currency {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #3A5A40;
-}
-
-.price-value {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #3A5A40;
-}
-
-/* Contenido */
-.card-content {
-    padding: 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.Header {
-    margin: 0;
-}
-
-.ItemHeader {
-    font-size: 1.4rem;
-    margin: 0;
-    color: #2c2f3d;
-    font-weight: 700;
-    line-height: 1.3;
-}
-
-.item-description {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.5;
-    margin: 0;
-}
-
-.card-footer-info {
-    margin-top: auto;
-}
-
-.stock-info {
-    font-size: 0.9rem;
-    color: #888;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.stock-icon {
-    font-size: 1rem;
-}
-
-/* CTA Button */
-.ItemFooter {
-    padding: 0 20px 20px;
-}
-
-.Option {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    background: linear-gradient(135deg, #3A5A40, #588157);
-    border: none;
-    border-radius: 12px;
-    color: white;
-    padding: 14px 24px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
     transition: all 0.2s ease;
-    cursor: pointer;
+    width: 100%;
 }
 
-.Option:active {
-    transform: scale(0.95);
-    background: linear-gradient(135deg, #2c4532, #3A5A40);
+/* ===== MOBILE CARD ===== */
+.mobile-card {
+    display: none;
 }
 
-.Option svg {
-    transition: transform 0.2s ease;
-}
-
-.Option:hover svg {
-    transform: translateX(4px);
-}
-
-/* Mobile optimizations */
 @media (max-width: 768px) {
-    .CardItem {
-        max-width: 100%;
-        margin: 15px 0;
+    .mobile-card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        margin-bottom: 8px;
+        border: 1px solid #f0f0f0;
+        min-height: 100px;
+    }
+
+    /* Imagen */
+    .mobile-image-container {
+        position: relative;
+        flex-shrink: 0;
+        width: 90px;
+        height: 90px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #f8f8f8;
+    }
+
+    .mobile-item-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .mobile-price-badge {
+        position: absolute;
+        bottom: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 3px 10px;
+        border-radius: 20px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        font-weight: bold;
+        color: #3A5A40;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    /* Contenido */
+    .mobile-content {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 90px;
+    }
+
+    .mobile-header {
+        margin-bottom: 4px;
+    }
+
+    .mobile-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        margin: 0 0 4px 0;
+        line-height: 1.2;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .mobile-description {
+        font-size: 0.8rem;
+        color: #666;
+        margin: 0;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Botón AÑADIR */
+    .mobile-actions {
+        align-self: flex-start;
+        margin-top: auto;
+    }
+
+    .mobile-add-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: linear-gradient(135deg, #3A5A40, #588157);
+        border: none;
+        border-radius: 20px;
+        color: white;
+        padding: 8px 24px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        justify-content: center;
+    }
+
+    .mobile-add-btn:active {
+        transform: scale(0.95);
+        opacity: 0.9;
+    }
+
+    /* Contador de cantidad (tipo PedidosYa) */
+    .quantity-selector {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: #f8f8f8;
+        border-radius: 25px;
+        padding: 4px;
+        min-width: 110px;
+        justify-content: space-between;
+    }
+
+    .quantity-btn {
+        width: 30px;
+        height: 30px;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        padding: 0;
+        flex-shrink: 0;
+    }
+
+    .quantity-btn:active {
+        transform: scale(0.9);
+    }
+
+    .quantity-btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+
+    .minus-btn {
+        background: #e0e0e0;
+        color: #666;
+    }
+
+    .plus-btn {
+        background: #3A5A40;
+        color: white;
+    }
+
+    .quantity-display {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 40px;
+    }
+
+    .quantity-number {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #3A5A40;
+        line-height: 1;
+    }
+
+    .quantity-label {
+        font-size: 0.6rem;
+        color: #888;
+        margin-top: 2px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+}
+
+/* ===== DESKTOP CARD ===== */
+.desktop-card {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .desktop-card {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) {
+    .desktop-card {
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        background: rgba(238, 238, 238, 0.9);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        width: 100%;
+        max-width: 350px;
+        margin: 20px auto;
+        height: 100%;
+    }
+
+    .desktop-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .desktop-card:active {
+        transform: scale(0.98);
+    }
+
+    /* Imagen y precio badge */
+    .card-image-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4/3;
+        background: #f5f5f5;
+        overflow: hidden;
+    }
+
+    .ItemImg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .desktop-card:hover .ItemImg {
+        transform: scale(1.05);
+    }
+
+    .price-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 8px 16px;
+        border-radius: 50px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        display: flex;
+        align-items: baseline;
+        gap: 2px;
+    }
+
+    .price-currency {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #3A5A40;
+    }
+
+    .price-value {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #3A5A40;
+    }
+
+    /* Contenido */
+    .card-content {
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .Header {
+        margin: 0;
     }
 
     .ItemHeader {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
+        margin: 0;
+        color: #2c2f3d;
+        font-weight: 700;
+        line-height: 1.3;
     }
 
     .item-description {
+        font-size: 0.95rem;
+        color: #666;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    .card-footer-info {
+        margin-top: auto;
+    }
+
+    .stock-info {
         font-size: 0.9rem;
+        color: #888;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    /* CTA Button */
+    .ItemFooter {
+        padding: 0 20px 20px;
     }
 
     .Option {
-        padding: 16px 24px;
-        font-size: 1.05rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        background: linear-gradient(135deg, #3A5A40, #588157);
+        border: none;
+        border-radius: 12px;
+        color: white;
+        padding: 14px 24px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        cursor: pointer;
+    }
+
+    .Option:active {
+        transform: scale(0.95);
+        background: linear-gradient(135deg, #2c4532, #3A5A40);
+    }
+
+    .Option svg {
+        transition: transform 0.2s ease;
+    }
+
+    .Option:hover svg {
+        transform: translateX(4px);
+    }
+}
+
+/* Optimizaciones específicas para mobile */
+@media (max-width: 768px) {
+    .ListGroup {
+        gap: 8px;
+        padding: 0 12px;
+    }
+
+    .mobile-card {
+        /* Feedback táctil */
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+    }
+
+    .mobile-card:active {
+        background: #fafafa;
+    }
+}
+
+/* Tablet: Podemos mostrar ambas versiones o elegir una */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .desktop-card {
+        max-width: 300px;
+    }
+
+    .mobile-card {
+        display: none;
     }
 }

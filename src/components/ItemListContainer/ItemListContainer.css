@@ -6,6 +6,7 @@
 
 .item-list-wrapper {
     padding: 0;
+    margin-bottom: 40px;
 }
 
 .menu-greeting-title {
@@ -35,5 +36,16 @@
     .menu-greeting-text {
         font-size: 1rem;
         padding: 0 10px;
+    }
+}
+
+/* Añade espacio adicional en mobile para mejor navegación */
+@media (max-width: 768px) {
+    .item-list-wrapper {
+        padding: 0 10px;
+    }
+
+    .ListGroup {
+        gap: 15px;
     }
 }

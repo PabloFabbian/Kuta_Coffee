@@ -1,112 +1,138 @@
 .menu-wrapper {
-    background: linear-gradient(to bottom, #3A5A40, #2c2f3d);
-    padding: 60px 20px 80px;
+    background: #3a5a40;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #395940, transparent);
 }
 
 .menu-container {
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
+/* Header */
 .menu-header {
     text-align: center;
     margin-bottom: 40px;
 }
 
 .menu-title {
-    font-size: 3rem;
-    font-weight: bold;
+    font-size: 2.5rem;
+    font-weight: 300;
     color: white;
-    margin-bottom: 12px;
+    margin: 0 0 10px 0;
+    letter-spacing: 1px;
 }
 
-.menu-description {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.85);
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
+.menu-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 300;
 }
 
-/* Filtros */
+/* Filtros minimalistas */
 .filters-container {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    /* Firefox */
 }
 
 .filters-container::-webkit-scrollbar {
     display: none;
-    /* Chrome, Safari */
 }
 
 .filters-scroll {
     display: flex;
+    gap: 8px;
+    padding: 10px 0;
     justify-content: center;
-    gap: 12px;
-    padding: 8px;
-    min-width: min-content;
 }
 
 .filter-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 24px;
-    border-radius: 50px;
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    font-weight: 600;
-    font-size: 1rem;
+    padding: 10px 24px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background: rgba(57, 89, 64, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     white-space: nowrap;
-    backdrop-filter: blur(10px);
+    min-width: 100px;
 }
 
-.filter-btn:active {
-    transform: scale(0.95);
+.filter-btn:hover {
+    border-color: rgba(255, 255, 255, 0.8);
+    color: white;
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .filter-btn.active {
-    background: linear-gradient(135deg, #588157, #3A5A40);
-    box-shadow: 0 4px 15px rgba(88, 129, 87, 0.4);
-    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.8);
+    color: white;
+    font-weight: 600;
 }
 
-.filter-icon {
-    font-size: 1.3rem;
-}
-
-.filter-label {
-    font-size: 0.95rem;
-}
-
-/* Mobile optimizations */
+/* Responsive */
 @media (max-width: 768px) {
     .menu-wrapper {
-        padding: 40px 16px 60px;
+        padding: 40px 16px;
     }
 
     .menu-title {
-        font-size: 2.2rem;
-    }
-
-    .menu-description {
-        font-size: 1rem;
-        padding: 0 10px;
+        font-size: 2rem;
     }
 
     .filters-scroll {
         justify-content: flex-start;
-        padding-left: 0;
+        padding: 10px 0 15px;
     }
 
     .filter-btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
+        padding: 8px 20px;
+        min-width: 100px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .menu-title {
+        font-size: 2.2rem;
+    }
+}
+
+.filter-btn-text {
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/* Solo para mobile - espacio al final del scroll */
+.scroll-spacer {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .scroll-spacer {
+        display: block;
+        width: 16px;
+        height: 1px;
+        flex-shrink: 0;
     }
 }
