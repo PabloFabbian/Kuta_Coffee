@@ -35,7 +35,7 @@ const HeroSection = () => {
     const parallaxY = mousePosition.y * 0.3 + scrollY * 0.5;
 
     return (
-        <section className="relative w-full h-screen overflow-hidden -mt-[228px] mb-1">
+        <section className="relative w-full h-screen overflow-hidden -mt-[15.75rem] 2xl:-mt-[15.3rem] mb-1">
             {/* Overlay de carga */}
             <motion.div
                 className="absolute inset-0 bg-black z-10"
