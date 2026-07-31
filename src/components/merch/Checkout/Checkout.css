@@ -1,0 +1,187 @@
+.checkout {
+  padding-block: clamp(2rem, 6vw, 3.5rem) var(--stack);
+}
+
+.checkout__title {
+  font-size: clamp(2.5rem, 10vw, 5rem);
+  margin-bottom: 2rem;
+}
+
+.checkout__nota {
+  max-width: 48ch;
+  margin-block: 1rem 2rem;
+  color: color-mix(in srgb, var(--verde-prof) 78%, transparent);
+}
+
+.checkout__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.checkout__grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.checkout__bloque {
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--verde-prof);
+}
+
+.checkout__bloque + .checkout__bloque {
+  margin-top: 2.5rem;
+}
+
+.checkout__bloque .k-label {
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+/* --- Campos de formulario (compartidos con Mayorista) -------------------- */
+.campo {
+  display: block;
+  margin-bottom: 1.1rem;
+}
+
+.campo > span {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 0.75rem 0.85rem;
+  background: #fff;
+  border: 1.5px solid color-mix(in srgb, var(--verde-prof) 25%, transparent);
+  font-size: 0.95rem;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: var(--verde);
+  outline: none;
+}
+
+.campo textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.campo__error {
+  display: block;
+  margin-top: 0.3rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-style: normal;
+  color: #a11d1d;
+}
+
+.checkout__par {
+  display: grid;
+  grid-template-columns: 1fr 8rem;
+  gap: 1rem;
+}
+
+.checkout__opciones {
+  display: grid;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.checkout__opcion {
+  display: grid;
+  gap: 0.15rem;
+  text-align: left;
+  padding: 0.9rem 1rem;
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--verde-prof) 25%, transparent);
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+.checkout__opcion strong {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.checkout__opcion span {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--texto-suave);
+}
+
+.checkout__opcion.is-active {
+  background: var(--verde-prof);
+  color: var(--lino);
+  box-shadow: inset 0 0 0 1.5px var(--verde-prof);
+}
+
+.checkout__opcion.is-active span {
+  color: color-mix(in srgb, var(--lino) 65%, transparent);
+}
+
+/* --- Resumen ------------------------------------------------------------- */
+.checkout__resumen {
+  align-self: start;
+  background: var(--lino);
+  padding: 1.5rem;
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--verde-prof) 15%, transparent);
+}
+
+.checkout__items {
+  list-style: none;
+  margin-bottom: 1.25rem;
+}
+
+.checkout__items li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.6rem;
+  border-bottom: var(--rule);
+  font-size: 0.88rem;
+}
+
+.checkout__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-variation-settings: 'SOFT' 60, 'WONK' 1;
+}
+
+.checkout__total .k-data {
+  font-size: 1.3rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.checkout__pagar {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.checkout__legal {
+  margin-top: 0.85rem;
+  font-size: 0.7rem;
+  color: var(--texto-suave);
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .checkout__grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+  }
+
+  .checkout__opciones {
+    grid-template-columns: 1fr 1fr;
+  }
+}

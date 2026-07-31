@@ -1,63 +1,76 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import NavBar from "./components/NavBar/NavBar";
-import Header from "./components/Header/Header";
-import HeroSection from './components/HeroSection/HeroSection';
-import Story from './components/Story/Story';
-import Menu from './components/Menu/Menu';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import { BrowserRouter, Routes, Route, useLocation, Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { CartProvider } from './context/CartContext';
-import Footer from './components/Footer/Footer';
-import AboutUs from './components/AboutUs/AboutUs';
-import Cart from './components/Cart/Cart';
-import Checkout from './components/Checkout/Checkout';
-import MoreDetails from './components/MoreDetails/MoreDetails';
+import NavBar from './components/layout/NavBar/NavBar';
+import Footer from './components/layout/Footer/Footer';
+import Hero from './components/home/Hero/Hero';
+import Manifiesto from './components/home/Manifiesto/Manifiesto';
+import MenuPage from './components/menu/MenuPage/MenuPage';
+import MerchPage from './components/merch/MerchPage/MerchPage';
+import MerchDetail from './components/merch/MerchDetail/MerchDetail';
+import Cart from './components/merch/Cart/Cart';
+import Checkout from './components/merch/Checkout/Checkout';
+import Locales from './components/locales/Locales/Locales';
+import Mayorista from './components/mayorista/Mayorista/Mayorista';
+
+/** Cada navegación arranca arriba. Sin esto se hereda el scroll de la ruta previa. */
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+    return null;
+};
+
+const Home = () => (
+  <>
+    <Hero />
+    <Manifiesto />
+    <Locales compacto />
+  </>
+);
+
+const NotFound = () => (
+  <main className="k-shell k-section" style={{ textAlign: 'center' }}>
+    <p className="k-label">Error 404</p>
+    <h1 className="k-signal" style={{ fontSize: 'clamp(3rem, 12vw, 7rem)', margin: '1rem 0' }}>
+      Esta página no existe
+    </h1>
+    <p style={{ marginBottom: '2rem', color: 'var(--humo)' }}>
+      El link puede estar viejo o mal escrito.
+    </p>
+    <Link to="/" className="k-btn">
+      Volver al inicio
+    </Link>
+  </main>
+);
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <CartProvider>
-          <NavBar />
-          <HeaderConditional />
-          <Routes>
-            {/* Home con nuevo flujo QR */}
-            <Route path='/' element={
-              <>
-                <HeroSection />
-                <Story />
-                <Menu />
-              </>
-            } />
-
-            {/* Rutas de categorías - ahora manejan filtros via URL */}
-            <Route path='/category/:categoryId' element={
-              <ItemListContainer />
-            } />
-
-            {/* Otras rutas */}
-            <Route path='/about-us' element={<AboutUs />} />
-            <Route path='/item/:itemId' element={<ItemDetailContainer />} />
-            <Route path='/more-details' element={<MoreDetails />} />
-            <Route path='/cart' element={<Cart />} />
-            <Route path='/cart-container' element={<Cart />} />
-            <Route path='/checkout' element={<Checkout />} />
-            <Route path='*' element={<h1>404 NOT FOUND</h1>} />
-          </Routes>
-          <Footer />
-        </CartProvider>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <CartProvider>
+        <ScrollToTop />
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/menu/:categoriaId" element={<MenuPage />} />
+          <Route path="/merch" element={<MerchPage />} />
+          <Route path="/merch/:id" element={<MerchDetail />} />
+          <Route path="/carrito" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/locales" element={<Locales />} />
+          <Route path="/mayorista" element={<Mayorista />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+        <ToastContainer position="bottom-center" autoClose={2500} theme="dark" />
+      </CartProvider>
+    </BrowserRouter>
   );
-}
-
-// Componente que renderiza Header solo en rutas específicas
-function HeaderConditional() {
-  const location = useLocation();
-  const showHeader = location.pathname === '/' || location.pathname.startsWith('/category/');
-
-  return showHeader ? <Header /> : null;
 }
 
 export default App;

@@ -1,0 +1,51 @@
+.manifiesto {
+  background: var(--fondo);
+}
+
+.manifiesto__title {
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  margin-block: 1rem 3rem;
+}
+
+.manifiesto__grid {
+  display: grid;
+  gap: 0;
+  border-top: var(--rule);
+}
+
+.manifiesto__bloque {
+  padding-block: 1.75rem;
+  border-bottom: var(--rule);
+}
+
+.manifiesto__bloque-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-variation-settings: 'SOFT' 60, 'WONK' 1;
+  font-size: 1.28rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6rem;
+}
+
+.manifiesto__bloque-text {
+  max-width: 46ch;
+  color: color-mix(in srgb, var(--verde-prof) 78%, transparent);
+}
+
+.manifiesto__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 860px) {
+  .manifiesto__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+
+  .manifiesto__bloque {
+    padding-block: 2rem;
+  }
+}

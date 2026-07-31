@@ -1,0 +1,91 @@
+.mayorista {
+  padding-block: clamp(2.5rem, 7vw, 4.5rem) var(--stack);
+}
+
+.mayorista__head {
+  margin-bottom: 2.5rem;
+}
+
+.mayorista__title {
+  font-size: clamp(2.5rem, 9vw, 5.5rem);
+  margin-block: 0.75rem 1.25rem;
+  max-width: 16ch;
+}
+
+.mayorista__lead {
+  max-width: 48ch;
+  color: color-mix(in srgb, var(--verde-prof) 78%, transparent);
+  margin-bottom: 1.5rem;
+}
+
+.mayorista__grid {
+  display: grid;
+  gap: 3rem;
+}
+
+.mayorista__form {
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--verde-prof);
+}
+
+.mayorista__submit {
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+.mayorista__aside {
+  align-self: start;
+  background: var(--verde-prof);
+  color: var(--lino);
+  padding: 1.75rem;
+}
+
+.mayorista__aside .k-label {
+  color: var(--salvia-texto);
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+/* La numeración acá sí es una secuencia real: son los pasos del proceso. */
+.mayorista__pasos {
+  list-style: none;
+}
+
+.mayorista__pasos li {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 0.85rem;
+  padding-block: 1rem;
+  border-top: var(--rule-claro);
+  font-size: 0.9rem;
+}
+
+.mayorista__pasos .k-data {
+  color: var(--salvia-texto);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.mayorista__contacto {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: var(--rule-claro);
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--lino) 70%, transparent);
+}
+
+.mayorista__contacto a {
+  border-bottom: 2px solid var(--salvia);
+}
+
+@media (min-width: 900px) {
+  .mayorista__grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4rem;
+  }
+
+  .mayorista__submit {
+    width: auto;
+    min-width: 16rem;
+  }
+}

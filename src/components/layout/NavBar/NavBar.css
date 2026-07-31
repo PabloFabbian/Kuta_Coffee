@@ -1,0 +1,130 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--verde-prof);
+  color: var(--lino);
+}
+
+.nav__bar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: var(--nav-h);
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.nav__brand img {
+  height: 30px;
+  width: auto;
+}
+
+.nav__links {
+  display: none;
+  margin-left: auto;
+  gap: 2rem;
+}
+
+.nav__link {
+  position: relative;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.98rem;
+  letter-spacing: 0.005em;
+  padding-block: 0.4rem;
+  color: color-mix(in srgb, var(--lino) 72%, transparent);
+  transition: color 0.15s ease;
+}
+
+.nav__link:hover,
+.nav__link.is-active {
+  color: var(--lino);
+}
+
+/* La barra activa es la "línea" del sistema de señalética. */
+.nav__link.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.15rem;
+  height: 3px;
+  background: var(--salvia);
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.nav__toggle {
+  display: grid;
+  gap: 5px;
+  padding: 0.5rem 0.25rem;
+}
+
+.nav__bun {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--lino);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav__toggle.is-open .nav__bun:first-child {
+  transform: translateY(3.5px) rotate(45deg);
+}
+
+.nav__toggle.is-open .nav__bun:last-child {
+  transform: translateY(-3.5px) rotate(-45deg);
+}
+
+.nav__panel {
+  position: fixed;
+  inset: var(--nav-h) 0 0;
+  background: var(--verde-prof);
+  padding: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+  overflow-y: auto;
+}
+
+.nav__panel-link {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-block: 0.75rem;
+  border-bottom: var(--rule-claro);
+  font-size: clamp(2.25rem, 11vw, 3.5rem);
+  color: var(--lino);
+}
+
+.nav__panel-link:hover {
+  color: var(--salvia);
+}
+
+.nav__panel-num {
+  font-size: 0.75rem;
+  color: var(--texto-suave);
+}
+
+@media (min-width: 900px) {
+  .nav__links {
+    display: flex;
+  }
+
+  .nav__actions {
+    margin-left: 0;
+  }
+
+  .nav__toggle,
+  .nav__panel {
+    display: none;
+  }
+}

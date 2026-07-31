@@ -1,103 +1,109 @@
-import { createContext, useState, useContext } from 'react'
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
-export const CartContext = createContext({
-    cart: [],
-    totalQuantity: 0,
-    addItem: () => { },
-    removeItem: () => { },
-    clearCart: () => { },
-    onRemove: () => { },
-    isInCart: () => { },
-    getItemQuantity: () => { },
-    getTotalPrice: () => { }
-})
+/**
+ * Carrito — SOLO merch.
+ *
+ * El menú de cafetería es informativo: no se pide desde la web, se pide en el
+ * mostrador. Por eso ningún componente de /menu toca este contexto.
+ *
+ * Una línea del carrito se identifica por producto + talle, no solo por id:
+ * un buzo M y uno L son dos líneas distintas del mismo producto.
+ */
 
-// Custom hook para usar el contexto
+const STORAGE_KEY = 'kuta.cart.v1';
+
+export const CartContext = createContext(null);
+
 export const useCart = () => {
-    const context = useContext(CartContext)
+  const ctx = useContext(CartContext);
+  if (!ctx) throw new Error('useCart tiene que usarse dentro de <CartProvider>');
+  return ctx;
+};
 
-    if (!context) {
-        throw new Error('useCart debe usarse dentro de un CartProvider')
-    }
+const lineKey = (id, talle) => `${id}::${talle ?? '-'}`;
 
-    return context
-}
+const leerStorage = () => {
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+};
 
 export const CartProvider = ({ children }) => {
-    const [cart, setCart] = useState([])
+  const [cart, setCart] = useState(leerStorage);
 
-    console.log('🛒 Estado actual del carrito:', cart)
-
-    const addItem = (item, quantity) => {
-        if (!isInCart(item.id)) {
-            // Si no está en el carrito, lo agregamos
-            setCart(prev => [...prev, { ...item, quantity }])
-        } else {
-            // Si ya está, actualizamos la cantidad sumando
-            const cartUpdated = cart.map(prod => {
-                if (prod.id === item.id) {
-                    return { ...prod, quantity: prod.quantity + quantity }
-                } else {
-                    return prod
-                }
-            })
-            setCart(cartUpdated)
-        }
+  // El carrito sobrevive al refresh. Sin esto, volver de Mercado Pago
+  // significa perder la compra.
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+    } catch {
+      /* modo incógnito o storage lleno: seguimos sin persistir */
     }
+  }, [cart]);
 
-    const removeItem = (itemId, quantity = 1) => {
-        const cartUpdated = cart.map(prod => {
-            if (prod.id === itemId) {
-                const newQuantity = prod.quantity - quantity
-                if (newQuantity <= 0) {
-                    // Si la cantidad llega a 0 o menos, eliminamos el producto
-                    return null
-                }
-                return { ...prod, quantity: newQuantity }
-            }
-            return prod
-        }).filter(prod => prod !== null) // Filtramos los nulls
+  const addItem = (item, cantidad = 1, talle = null) => {
+    const key = lineKey(item.id, talle);
+    setCart((prev) => {
+      const existente = prev.find((l) => l.key === key);
+      if (existente) {
+        return prev.map((l) =>
+          l.key === key
+            ? { ...l, cantidad: Math.min(l.cantidad + cantidad, item.stock || 99) }
+            : l
+        );
+      }
+      return [
+        ...prev,
+        {
+          key,
+          id: item.id,
+          nombre: item.nombre,
+          precio: item.precio,
+          imagen: item.imagen,
+          stock: item.stock,
+          talle,
+          cantidad,
+        },
+      ];
+    });
+  };
 
-        setCart(cartUpdated)
-    }
+  const setCantidad = (key, cantidad) => {
+    setCart((prev) =>
+      cantidad <= 0
+        ? prev.filter((l) => l.key !== key)
+        : prev.map((l) =>
+            l.key === key ? { ...l, cantidad: Math.min(cantidad, l.stock || 99) } : l
+          )
+    );
+  };
 
-    const clearCart = () => {
-        setCart([])
-    }
+  const removeItem = (key) => setCart((prev) => prev.filter((l) => l.key !== key));
 
-    const isInCart = (itemId) => {
-        return cart.some(prod => prod.id === itemId)
-    }
+  const clearCart = () => setCart([]);
 
-    const onRemove = (id) => {
-        const cartUpdated = cart.filter(item => item.id !== id);
-        setCart(cartUpdated);
-    };
+  const total = useMemo(
+    () => cart.reduce((acc, l) => acc + l.precio * l.cantidad, 0),
+    [cart]
+  );
 
-    const getItemQuantity = (itemId) => {
-        const item = cart.find(prod => prod.id === itemId)
-        return item ? item.quantity : 0
-    }
+  const cantidadTotal = useMemo(
+    () => cart.reduce((acc, l) => acc + l.cantidad, 0),
+    [cart]
+  );
 
-    const getTotalPrice = () => {
-        return cart.reduce((acc, item) => acc + (item.price * item.quantity), 0)
-    }
+  const value = {
+    cart,
+    addItem,
+    setCantidad,
+    removeItem,
+    clearCart,
+    total,
+    cantidadTotal,
+  };
 
-    const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0)
-
-    return (
-        <CartContext.Provider value={{
-            cart,
-            addItem,
-            removeItem,
-            clearCart,
-            onRemove,
-            isInCart,
-            getItemQuantity,
-            getTotalPrice,
-            totalQuantity
-        }}>
-            {children}
-        </CartContext.Provider>
-    )
-}
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+};

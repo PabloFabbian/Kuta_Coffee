@@ -1,0 +1,150 @@
+.carrito {
+  padding-block: clamp(2rem, 6vw, 3.5rem) var(--stack);
+}
+
+.carrito__title {
+  font-size: clamp(2.5rem, 10vw, 5rem);
+  margin-bottom: 2rem;
+}
+
+.carrito__vacio {
+  display: grid;
+  justify-items: start;
+  gap: 1.25rem;
+  padding-block: 2rem 4rem;
+  color: var(--texto-suave);
+}
+
+.carrito__lista {
+  list-style: none;
+  border-top: 2px solid var(--verde-prof);
+}
+
+.carrito__linea {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  grid-template-areas:
+    'img datos subtotal'
+    'img stepper subtotal';
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding-block: 1.25rem;
+  border-bottom: var(--rule);
+}
+
+.carrito__img {
+  grid-area: img;
+  width: 72px;
+  height: 88px;
+  object-fit: cover;
+  align-self: start;
+}
+
+.carrito__datos {
+  grid-area: datos;
+}
+
+.carrito__nombre {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-variation-settings: 'SOFT' 60, 'WONK' 1;
+  font-size: 1.08rem;
+}
+
+.carrito__talle {
+  font-size: 0.78rem;
+  color: var(--texto-suave);
+  margin-top: 0.15rem;
+}
+
+.carrito__quitar {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--texto-suave);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.carrito__quitar:hover {
+  color: var(--verde-prof);
+}
+
+.carrito__stepper {
+  grid-area: stepper;
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--verde-prof) 30%, transparent);
+}
+
+.carrito__stepper button {
+  width: 2.1rem;
+  height: 2.1rem;
+  line-height: 1;
+}
+
+.carrito__stepper button:hover {
+  background: var(--verde-prof);
+  color: var(--lino);
+}
+
+.carrito__stepper span {
+  min-width: 2.1rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.carrito__subtotal {
+  grid-area: subtotal;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+  align-self: center;
+}
+
+.carrito__pie {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.carrito__total-valor {
+  display: block;
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.carrito__total-nota {
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  color: var(--texto-suave);
+}
+
+.carrito__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (min-width: 760px) {
+  .carrito__linea {
+    grid-template-columns: 96px 1fr auto auto;
+    grid-template-areas: 'img datos stepper subtotal';
+    gap: 1.5rem;
+  }
+
+  .carrito__img {
+    width: 96px;
+    height: 116px;
+  }
+
+  .carrito__pie {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+
+  .carrito__acciones {
+    justify-content: flex-end;
+  }
+}

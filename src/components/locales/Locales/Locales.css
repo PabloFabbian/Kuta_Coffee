@@ -1,0 +1,176 @@
+/* Los locales van sobre claro: la versión anterior dejaba esta pantalla en 90%
+   verde profundo y la paleta pastel de la marca no aparecía en ningún lado.
+   El fondo oscuro queda reservado al hero y al pie. */
+
+.locales {
+  background: var(--fondo);
+  color: var(--texto);
+  padding-block: var(--stack);
+}
+
+/* La banda de la home usa --lino: es el tono pastel de la paleta y separa
+   visualmente esta sección del bloque de arriba sin recurrir a otro oscuro. */
+.locales--compacto {
+  background: var(--lino);
+}
+
+.locales__head {
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.locales__title {
+  font-size: clamp(2.5rem, 9vw, 5rem);
+  margin-top: 0.6rem;
+  color: var(--verde-prof);
+}
+
+/* --- La línea ------------------------------------------------------------
+   Una sola línea vertical recorre las tres paradas. El nodo marca cada una.  */
+.locales__linea {
+  position: relative;
+  list-style: none;
+  padding-left: 2rem;
+}
+
+.locales__linea::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  width: 2px;
+  background: var(--salvia);
+}
+
+.locales__parada {
+  position: relative;
+  padding-block: 1.75rem;
+}
+
+.locales__parada + .locales__parada {
+  border-top: var(--rule);
+}
+
+.locales__nodo {
+  position: absolute;
+  left: -2rem;
+  top: 2.15rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--verde);
+  outline: 3px solid var(--fondo);
+}
+
+.locales--compacto .locales__nodo {
+  outline-color: var(--lino);
+}
+
+.locales__parada-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.locales__nombre {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-variation-settings: 'SOFT' 60, 'WONK' 1, 'opsz' 90;
+  font-size: clamp(1.75rem, 6vw, 2.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--verde-prof);
+}
+
+.locales__anio {
+  font-size: 0.78rem;
+  color: var(--texto-suave);
+}
+
+.locales__dir {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--texto) 78%, transparent);
+}
+
+.locales__horarios {
+  list-style: none;
+  margin-top: 1.1rem;
+  max-width: 22rem;
+}
+
+.locales__horarios li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.45rem;
+  border-bottom: var(--rule);
+  font-size: 0.9rem;
+}
+
+.locales__horarios .k-data {
+  color: var(--verde-osc);
+  font-weight: 600;
+}
+
+.locales__nota {
+  margin-top: 1rem;
+  max-width: 40ch;
+  font-size: 0.94rem;
+  color: var(--texto-suave);
+}
+
+.locales__maps {
+  display: inline-block;
+  margin-top: 1.1rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--verde-osc);
+  padding-bottom: 2px;
+  border-bottom: 2px solid var(--salvia);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.locales__maps:hover {
+  color: var(--verde);
+  border-bottom-color: var(--verde);
+}
+
+.locales__cta {
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .locales--compacto .locales__linea {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    padding-left: 0;
+    padding-top: 1.75rem;
+  }
+
+  .locales--compacto .locales__linea::before {
+    left: 0;
+    right: 0;
+    top: 5px;
+    bottom: auto;
+    width: auto;
+    height: 2px;
+  }
+
+  .locales--compacto .locales__parada {
+    padding-block: 0;
+  }
+
+  .locales--compacto .locales__parada + .locales__parada {
+    border-top: 0;
+  }
+
+  .locales--compacto .locales__nodo {
+    left: 0;
+    top: 0;
+  }
+}

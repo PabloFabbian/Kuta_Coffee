@@ -1,21 +1,232 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ==========================================================================
+   KUTA — sistema base
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+   Paleta: los cinco verdes de la marca, sin tocar.
+   El negro no es un sexto color de marca: es el ancla estructural. Los verdes
+   pintan las superficies grandes, el negro sostiene lo que se toca (botones,
+   filetes, texto). Esa división es lo que deja el gesto brutalista sin que
+   compita con la paleta.
+
+   Tipografía: elegida para acompañar el wordmark, que está pintado a pincel
+   (trazo grueso, terminaciones redondeadas, letras levemente torcidas). Una
+   grotesca comprimida de señalética le peleaba; Fraunces tiene ejes SOFT y
+   WONK que le dan un temblor orgánico parecido, sin imitar la letra.
+   ========================================================================== */
+
+:root {
+  /* --- Color de marca --------------------------------------------------- */
+  --dust-grey: #dad7cd;
+  /* el claro de la paleta                          */
+  --dry-sage: #a3b18a;
+  /* verde claro: líneas, nodos, secundarios        */
+  --fern: #588157;
+  /* verde principal: acentos e interacción         */
+  --hunter-green: #3a5a40;
+  /* bloques y estados hover                        */
+  --pine-teal: #344e41;
+  /* el más oscuro: fondos oscuros                  */
+
+  /* --- Negro y derivado -------------------------------------------------
+     --negro: el único color no blanco del favicon Kuta.ico. No lo inventé,
+     sale de la marca, y es lo que sostiene el gesto brutalista.
+     --papel: --dust-grey aclarado. Hace falta un segundo claro porque una
+     página entera en #dad7cd deja los bloques sin dónde apoyarse.        */
+  --negro: #1a1819;
+  --papel: #efeee7;
+
+  /* --- Compatibilidad ---------------------------------------------------
+     Los componentes fueron escritos con estos nombres. Se mantienen para no
+     tener que tocar los diez archivos CSS del proyecto.                   */
+  --verde: var(--fern);
+  --verde-osc: var(--hunter-green);
+  --verde-prof: var(--pine-teal);
+  --salvia: var(--dry-sage);
+  --lino: var(--dust-grey);
+  --tinta: var(--negro);
+
+  /* --- Alias semánticos -------------------------------------------------- */
+  --fondo: var(--papel);
+  --superficie: var(--dust-grey);
+  --texto: var(--negro);
+  --texto-suave: #5c6456;
+  /* sage oscurecida: #6d7566 daba 4.12:1 sobre
+                               papel, por debajo de AA para texto chico     */
+  --salvia-texto: #b6bea1;
+  /* sage aclarada hacia dust-grey para texto
+                               chico sobre oscuro: la pura da 3.98:1        */
+  --oscuro: var(--pine-teal);
+  --sobre-oscuro: var(--dust-grey);
+  --acento: var(--fern);
+
+  /* --- Tipografía ------------------------------------------------------
+     Fraunces para títulos (SOFT alto, WONK activo = terminaciones blandas).
+     Karla para todo lo demás: grotesca humanista, cálida y muy legible.   */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Karla', system-ui, sans-serif;
+
+  /* --- Ritmo ----------------------------------------------------------- */
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --stack: clamp(3.5rem, 9vw, 7rem);
+  /* Los filetes ahora salen del negro, no del verde: es lo que le da el
+     borde duro a las listas de menú y locales.                           */
+  --rule: 1px solid color-mix(in srgb, var(--negro) 22%, transparent);
+  --rule-claro: 1px solid color-mix(in srgb, var(--dust-grey) 25%, transparent);
+  --nav-h: 68px;
+
+  /* Casi recto. En 0 quedaba duro contra el logo pintado a mano; en 6 se
+     perdía el gesto. 3 conserva las dos cosas.                           */
+  --radio: 3px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-    background-color: #588157;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-#menu {
-    scroll-margin-top: 125px;
+img {
+  display: block;
+  max-width: 100%;
 }
 
-#about {
-    scroll-margin-top: 125px;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--negro);
+  outline-offset: 3px;
+}
+
+/* --- Roles tipográficos --------------------------------------------------- */
+
+/* Titular. En caja baja, no en versales: el wordmark es informal y las
+   mayúsculas lo vuelven institucional. */
+.k-signal {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-variation-settings: 'SOFT' 60, 'WONK' 1, 'opsz' 120;
+  line-height: 1.02;
+  letter-spacing: -0.018em;
+  color: var(--negro);
+}
+
+/* Etiqueta chica: nombra secciones. Acá sí van versales, es texto de apoyo. */
+.k-label {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--texto-suave);
+}
+
+/* Datos: precios, horarios, direcciones. Tabular para que alineen. */
+.k-data {
+  font-family: var(--font-body);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+.k-shell {
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.k-section {
+  padding-block: var(--stack);
+}
+
+/* Botón: bloque negro. Es el elemento que más se repite en el sitio, así que
+   es donde el negro rinde sin invadir las superficies verdes. */
+.k-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radio);
+  background: var(--negro);
+  color: var(--dust-grey);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.005em;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+/* El hover va a hunter-green, no a fern: --dust-grey sobre --fern daba
+   3.11:1, insuficiente para texto. Sobre hunter-green sube a 5.7:1. */
+.k-btn:hover:not(:disabled) {
+  background: var(--hunter-green);
+  transform: translateY(-2px);
+}
+
+.k-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.k-btn--ghost {
+  background: transparent;
+  color: var(--negro);
+  box-shadow: inset 0 0 0 1.5px var(--negro);
+}
+
+.k-btn--ghost:hover:not(:disabled) {
+  background: var(--negro);
+  color: var(--dust-grey);
+}
+
+.k-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

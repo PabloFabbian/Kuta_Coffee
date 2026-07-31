@@ -1,0 +1,124 @@
+.menu {
+  padding-bottom: var(--stack);
+}
+
+.menu__head {
+  padding-block: clamp(2.5rem, 7vw, 4.5rem) 2rem;
+}
+
+.menu__title {
+  font-size: clamp(3rem, 13vw, 8rem);
+  margin-block: 0.75rem 1rem;
+}
+
+.menu__nota {
+  color: var(--texto-suave);
+  max-width: 46ch;
+}
+
+.menu__tabs {
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 20;
+  background: var(--verde-prof);
+  border-block: 1px solid color-mix(in srgb, var(--lino) 15%, transparent);
+}
+
+.menu__tabs-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-block: 0.85rem;
+  scrollbar-width: none;
+}
+
+.menu__tabs-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.menu__tab {
+  flex: 0 0 auto;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.005em;
+  color: color-mix(in srgb, var(--lino) 70%, transparent);
+  padding-block: 0.2rem;
+  border-bottom: 2px solid transparent;
+}
+
+.menu__tab:hover {
+  color: var(--lino);
+  border-bottom-color: var(--salvia);
+}
+
+.menu__estado {
+  padding-block: 4rem;
+  color: var(--texto-suave);
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.menu__seccion {
+  padding-top: clamp(2.5rem, 6vw, 4rem);
+  scroll-margin-top: calc(var(--nav-h) + 52px);
+}
+
+.menu__seccion-title {
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--verde-prof);
+}
+
+.menu__lista {
+  list-style: none;
+}
+
+/* Fila de carta: nombre a la izquierda, precio a la derecha, alineado. */
+.menu__row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1.1rem;
+  border-bottom: var(--rule);
+}
+
+.menu__thumb {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  filter: grayscale(0.2);
+}
+
+.menu__row-name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.04rem;
+  line-height: 1.25;
+}
+
+.menu__row-desc {
+  margin-top: 0.2rem;
+  font-size: 0.86rem;
+  color: var(--texto-suave);
+  max-width: 52ch;
+}
+
+.menu__row-price {
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (min-width: 720px) {
+  .menu__thumb {
+    width: 72px;
+    height: 72px;
+  }
+
+  .menu__row {
+    gap: 1.5rem;
+    padding-block: 1.35rem;
+  }
+}

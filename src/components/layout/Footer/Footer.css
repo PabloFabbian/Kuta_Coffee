@@ -1,0 +1,95 @@
+.pie {
+  background: var(--verde-prof);
+  color: var(--lino);
+}
+
+.pie__grid {
+  display: grid;
+  gap: 2.5rem;
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+}
+
+.pie__logo {
+  height: 34px;
+  width: auto;
+}
+
+.pie__claim {
+  margin-top: 1rem;
+  max-width: 24ch;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-variation-settings: 'SOFT' 70, 'WONK' 1;
+  font-size: 1.22rem;
+  line-height: 1.2;
+  color: color-mix(in srgb, var(--lino) 85%, transparent);
+}
+
+.pie__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  font-size: 0.88rem;
+}
+
+.pie__col .k-label {
+  margin-bottom: 0.4rem;
+  color: var(--salvia-texto);
+}
+
+.pie__col a {
+  color: color-mix(in srgb, var(--lino) 88%, transparent);
+  transition: color 0.14s ease;
+}
+
+.pie__col a:hover {
+  color: var(--salvia);
+}
+
+.pie__local {
+  display: grid;
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.pie__local strong {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--lino);
+}
+
+.pie__social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  margin-top: 0.25rem;
+}
+
+.pie__base {
+  border-top: var(--rule-claro);
+}
+
+.pie__base-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-block: 1.1rem;
+  font-size: 0.72rem;
+  color: color-mix(in srgb, var(--lino) 55%, transparent);
+}
+
+.pie__credito a {
+  border-bottom: 1px solid var(--verde);
+  color: color-mix(in srgb, var(--lino) 75%, transparent);
+}
+
+@media (min-width: 760px) {
+  .pie__grid {
+    grid-template-columns: 1.4fr 0.8fr 1fr 1fr;
+    gap: 2rem;
+  }
+}

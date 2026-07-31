@@ -1,0 +1,139 @@
+.detalle {
+  padding-block: 2rem var(--stack);
+}
+
+.detalle__volver {
+  display: inline-block;
+  margin-bottom: 1.75rem;
+  color: var(--texto-suave);
+}
+
+.detalle__volver:hover {
+  color: var(--verde-prof);
+}
+
+.detalle__grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.detalle__media {
+  aspect-ratio: 4 / 5;
+  background: var(--lino);
+  overflow: hidden;
+}
+
+.detalle__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detalle__ph {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--verde-prof) 6%, transparent) 0 10px,
+    transparent 10px 20px
+  );
+}
+
+.detalle__title {
+  font-size: clamp(2.25rem, 7vw, 4rem);
+}
+
+.detalle__precio {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: 0.75rem;
+}
+
+.detalle__desc {
+  margin-top: 1.25rem;
+  max-width: 46ch;
+  color: color-mix(in srgb, var(--verde-prof) 78%, transparent);
+}
+
+.detalle__campo {
+  margin-top: 2rem;
+  border: 0;
+}
+
+.detalle__campo .k-label {
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.detalle__talles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.detalle__talle {
+  min-width: 3rem;
+  padding: 0.6rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--verde-prof) 35%, transparent);
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+.detalle__talle:hover {
+  box-shadow: inset 0 0 0 1.5px var(--verde-prof);
+}
+
+.detalle__talle.is-active {
+  background: var(--verde-prof);
+  color: var(--lino);
+}
+
+.detalle__stepper {
+  display: inline-flex;
+  align-items: center;
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--verde-prof) 35%, transparent);
+}
+
+.detalle__stepper button {
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.detalle__stepper button:hover {
+  background: var(--verde-prof);
+  color: var(--lino);
+}
+
+.detalle__stepper span {
+  min-width: 2.75rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.detalle__add {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.detalle__envio {
+  margin-top: 1rem;
+  font-size: 0.72rem;
+  color: var(--texto-suave);
+  line-height: 1.6;
+}
+
+@media (min-width: 880px) {
+  .detalle__grid {
+    grid-template-columns: 1.05fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .detalle__add {
+    width: auto;
+    min-width: 16rem;
+  }
+}
