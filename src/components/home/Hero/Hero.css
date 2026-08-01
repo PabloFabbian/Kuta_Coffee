@@ -1,4 +1,6 @@
 .hero {
+  /* Acento cálido para texto sobre el video: se banca tanto las sombras como los brillos metálicos. */
+  --lima: #ecf39e;
   position: relative;
   background: var(--verde-prof);
   color: var(--lino);
@@ -11,6 +13,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* El video no recibe clicks: el hero es contenido, no un reproductor. */
+  pointer-events: none;
   /* Menos desaturado que antes: con la paleta verde, el gris frío chocaba. */
   filter: grayscale(0.3) contrast(1.02) saturate(0.9);
 }
@@ -18,12 +22,10 @@
 .hero__veil {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--verde-prof) 55%, transparent) 0%,
-    color-mix(in srgb, var(--verde-prof) 72%, transparent) 55%,
-    var(--verde-prof) 100%
-  );
+  background: linear-gradient(180deg,
+      color-mix(in srgb, var(--verde-prof) 65%, transparent) 0%,
+      color-mix(in srgb, var(--verde-prof) 30%, transparent) 55%,
+      var(--verde-prof) 100%);
 }
 
 .hero__inner {
@@ -32,11 +34,12 @@
 }
 
 .hero__eyebrow {
-  color: var(--salvia-texto);
+  color: var(--lima) !important;
   margin-bottom: 1.5rem;
 }
 
 .hero__title {
+  color: var(--lima) !important;
   font-size: clamp(3.25rem, 15vw, 10.5rem);
   max-width: 14ch;
 }
@@ -98,7 +101,7 @@
   padding-block: 0.85rem;
 }
 
-.hero__stop + .hero__stop {
+.hero__stop+.hero__stop {
   border-top: var(--rule-claro);
 }
 
@@ -149,7 +152,7 @@
     padding-bottom: 0;
   }
 
-  .hero__stop + .hero__stop {
+  .hero__stop+.hero__stop {
     border-top: 0;
   }
 

@@ -61,7 +61,7 @@ const Footer = () => (
         </span>
         <span className="k-data pie__credito">
           Sitio por{' '}
-          <a href="https://pfsoftware.com.ar" target="_blank" rel="noreferrer">
+          <a href="https://pfsoftware.vercel.app" target="_blank" rel="noreferrer">
             PF Software
           </a>
         </span>

@@ -1,80 +1,71 @@
 /* ==========================================================================
    KUTA — sistema base
 
-   Paleta: los cinco verdes de la marca, sin tocar.
-   El negro no es un sexto color de marca: es el ancla estructural. Los verdes
-   pintan las superficies grandes, el negro sostiene lo que se toca (botones,
-   filetes, texto). Esa división es lo que deja el gesto brutalista sin que
-   compita con la paleta.
+   Paleta: los cinco de la marca (Evergreen → Lime Cream), sin tocar.
+   El negro sigue siendo el ancla estructural: los verdes pintan superficies,
+   el negro sostiene lo que se toca (botones, filetes, títulos).
 
    Tipografía: elegida para acompañar el wordmark, que está pintado a pincel
-   (trazo grueso, terminaciones redondeadas, letras levemente torcidas). Una
-   grotesca comprimida de señalética le peleaba; Fraunces tiene ejes SOFT y
-   WONK que le dan un temblor orgánico parecido, sin imitar la letra.
+   (trazo grueso, terminaciones redondeadas, letras levemente torcidas).
+   Fraunces tiene ejes SOFT y WONK que le dan un temblor orgánico parecido.
    ========================================================================== */
 
 :root {
   /* --- Color de marca --------------------------------------------------- */
-  --dust-grey: #dad7cd;
-  /* el claro de la paleta                          */
-  --dry-sage: #a3b18a;
-  /* verde claro: líneas, nodos, secundarios        */
-  --fern: #588157;
-  /* verde principal: acentos e interacción         */
-  --hunter-green: #3a5a40;
-  /* bloques y estados hover                        */
-  --pine-teal: #344e41;
-  /* el más oscuro: fondos oscuros                  */
+  --evergreen: #132a13;
+  /* el más oscuro: nav, hero, pie                 */
+  --hunter-green: #31572c;
+  /* bloques y estados hover                       */
+  --fern: #4f772d;
+  /* verde principal: acentos e interacción        */
+  --palm-leaf: #90a955;
+  /* líneas, nodos, secundarios                    */
+  --lime-cream: #ecf39e;
+  /* el claro: texto sobre oscuro y acentos        */
 
-  /* --- Negro y derivado -------------------------------------------------
-     --negro: el único color no blanco del favicon Kuta.ico. No lo inventé,
-     sale de la marca, y es lo que sostiene el gesto brutalista.
-     --papel: --dust-grey aclarado. Hace falta un segundo claro porque una
-     página entera en #dad7cd deja los bloques sin dónde apoyarse.        */
+  /* --- Negro y derivados ------------------------------------------------
+     --negro: el único color no blanco del favicon Kuta.ico.
+     Esta paleta no trae ningún neutro, así que los dos claros se derivan de
+     Lime Cream: --papel para páginas enteras y --crema para superficies.
+     Lime Cream puro en un fondo completo satura la pantalla.             */
   --negro: #1a1819;
-  --papel: #efeee7;
+  --papel: #f8fbdd;
+  --crema: #f2f7bb;
 
   /* --- Compatibilidad ---------------------------------------------------
-     Los componentes fueron escritos con estos nombres. Se mantienen para no
-     tener que tocar los diez archivos CSS del proyecto.                   */
+     Los componentes usan estos nombres. Se mantienen para no tocar los diez
+     archivos CSS del proyecto.                                            */
   --verde: var(--fern);
   --verde-osc: var(--hunter-green);
-  --verde-prof: var(--pine-teal);
-  --salvia: var(--dry-sage);
-  --lino: var(--dust-grey);
+  --verde-prof: var(--evergreen);
+  --salvia: var(--palm-leaf);
+  --lino: var(--lime-cream);
   --tinta: var(--negro);
 
   /* --- Alias semánticos -------------------------------------------------- */
   --fondo: var(--papel);
-  --superficie: var(--dust-grey);
+  --superficie: var(--crema);
   --texto: var(--negro);
-  --texto-suave: #5c6456;
-  /* sage oscurecida: #6d7566 daba 4.12:1 sobre
-                               papel, por debajo de AA para texto chico     */
-  --salvia-texto: #b6bea1;
-  /* sage aclarada hacia dust-grey para texto
-                               chico sobre oscuro: la pura da 3.98:1        */
-  --oscuro: var(--pine-teal);
-  --sobre-oscuro: var(--dust-grey);
+  --texto-suave: #4e5a42;
+  /* verde oscurecido: los tonos medios de esta
+                               paleta no llegan a AA sobre papel           */
+  --salvia-texto: #a2b864;
+  /* palm-leaf aclarada para texto chico sobre
+                               oscuro: la pura da 5.8:1, esta 7:1          */
+  --oscuro: var(--evergreen);
+  --sobre-oscuro: var(--lime-cream);
   --acento: var(--fern);
 
-  /* --- Tipografía ------------------------------------------------------
-     Fraunces para títulos (SOFT alto, WONK activo = terminaciones blandas).
-     Karla para todo lo demás: grotesca humanista, cálida y muy legible.   */
+  /* --- Tipografía ------------------------------------------------------- */
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'Karla', system-ui, sans-serif;
 
-  /* --- Ritmo ----------------------------------------------------------- */
+  /* --- Ritmo ------------------------------------------------------------ */
   --gutter: clamp(1.25rem, 4vw, 4rem);
   --stack: clamp(3.5rem, 9vw, 7rem);
-  /* Los filetes ahora salen del negro, no del verde: es lo que le da el
-     borde duro a las listas de menú y locales.                           */
   --rule: 1px solid color-mix(in srgb, var(--negro) 22%, transparent);
-  --rule-claro: 1px solid color-mix(in srgb, var(--dust-grey) 25%, transparent);
+  --rule-claro: 1px solid color-mix(in srgb, var(--lime-cream) 25%, transparent);
   --nav-h: 68px;
-
-  /* Casi recto. En 0 quedaba duro contra el logo pintado a mano; en 6 se
-     perdía el gesto. 3 conserva las dos cosas.                           */
   --radio: 3px;
 }
 
@@ -169,8 +160,8 @@ textarea {
   padding-block: var(--stack);
 }
 
-/* Botón: bloque negro. Es el elemento que más se repite en el sitio, así que
-   es donde el negro rinde sin invadir las superficies verdes. */
+/* Botón: bloque negro. Es el elemento que más se repite, así que es donde el
+   negro rinde sin invadir las superficies verdes. */
 .k-btn {
   display: inline-flex;
   align-items: center;
@@ -179,7 +170,7 @@ textarea {
   padding: 0.85rem 1.5rem;
   border-radius: var(--radio);
   background: var(--negro);
-  color: var(--dust-grey);
+  color: var(--lime-cream);
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.95rem;
@@ -187,8 +178,8 @@ textarea {
   transition: background 0.18s ease, transform 0.18s ease;
 }
 
-/* El hover va a hunter-green, no a fern: --dust-grey sobre --fern daba
-   3.11:1, insuficiente para texto. Sobre hunter-green sube a 5.7:1. */
+/* Hover a hunter-green, no a fern: lime-cream sobre fern da 4.46:1, justo en
+   el límite; sobre hunter-green sube a 7.07:1. */
 .k-btn:hover:not(:disabled) {
   background: var(--hunter-green);
   transform: translateY(-2px);
@@ -207,7 +198,7 @@ textarea {
 
 .k-btn--ghost:hover:not(:disabled) {
   background: var(--negro);
-  color: var(--dust-grey);
+  color: var(--lime-cream);
 }
 
 .k-sr {
