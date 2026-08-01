@@ -25,52 +25,58 @@ const Locales = ({ compacto = false }) => (
             <span className="locales__nodo" aria-hidden="true" />
 
             <div className="locales__parada-body">
-              <div className="locales__parada-head">
-                <h3 className="locales__nombre">{l.nombre}</h3>
-                <span className="k-data locales__anio">Desde {l.apertura}</span>
+              <div className="locales__foto">
+                <img src={l.foto} alt={l.nombre} loading="lazy" />
               </div>
 
-              <p className="k-data locales__dir">
-                {l.calle}
-                <br />
-                {l.barrio}
-              </p>
+              <div className="locales__info">
+                <div className="locales__parada-head">
+                  <h3 className="locales__nombre">{l.nombre}</h3>
+                  <span className="k-data locales__anio">Desde {l.apertura}</span>
+                </div>
 
-              {!compacto && (
-                <>
-                  <ul className="locales__horarios">
-                    {l.horarios.map((h) => (
-                      <li key={h.dias}>
-                        <span>{h.dias}</span>
-                        <span className="k-data">{h.horas}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <p className="k-data locales__dir">
+                  {l.calle}
+                  <br />
+                  {l.barrio}
+                </p>
 
-                  <p className="locales__nota">{l.nota}</p>
-                </>
-              )}
+                {!compacto && (
+                  <>
+                    <ul className="locales__horarios">
+                      {l.horarios.map((h) => (
+                        <li key={h.dias}>
+                          <span>{h.dias}</span>
+                          <span className="k-data">{h.horas}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-              <a
+                    <p className="locales__nota">{l.nota}</p>
+                  </>
+                )}
+
+              <a    
                 className="locales__maps"
                 href={l.maps}
                 target="_blank"
                 rel="noreferrer"
-              >
+                >
                 Abrir en Maps →
               </a>
             </div>
+          </div>
           </li>
         ))}
-      </ol>
+    </ol>
 
-      {compacto && (
-        <Link to="/locales" className="k-btn k-btn--ghost locales__cta">
-          Ver horarios de cada local
-        </Link>
-      )}
-    </div>
-  </section>
+    {compacto && (
+      <Link to="/locales" className="k-btn k-btn--ghost locales__cta">
+        Ver horarios de cada local
+      </Link>
+    )}
+  </div>
+  </section >
 );
 
 export default Locales;

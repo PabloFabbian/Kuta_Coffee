@@ -47,7 +47,7 @@
   padding-block: 1.75rem;
 }
 
-.locales__parada + .locales__parada {
+.locales__parada+.locales__parada {
   border-top: var(--rule);
 }
 
@@ -64,6 +64,51 @@
 
 .locales--compacto .locales__nodo {
   outline-color: var(--lino);
+}
+
+/* --- Foto ------------------------------------------------------------
+   Apilada por default; en fila solo en la página completa, a partir de
+   700px. En la grilla compacta se mantiene apilada: cada columna es
+   angosta y una foto al costado la ahogaría. */
+.locales__parada-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.locales__foto {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--radio);
+  border: var(--rule);
+  background: var(--superficie);
+}
+
+.locales__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.locales__info {
+  min-width: 0;
+}
+
+@media (min-width: 700px) {
+  .locales:not(.locales--compacto) .locales__parada-body {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.75rem;
+  }
+
+  .locales:not(.locales--compacto) .locales__foto {
+    flex: 0 0 240px;
+  }
+
+  .locales:not(.locales--compacto) .locales__info {
+    flex: 1;
+  }
 }
 
 .locales__parada-head {
@@ -165,7 +210,7 @@
     padding-block: 0;
   }
 
-  .locales--compacto .locales__parada + .locales__parada {
+  .locales--compacto .locales__parada+.locales__parada {
     border-top: 0;
   }
 

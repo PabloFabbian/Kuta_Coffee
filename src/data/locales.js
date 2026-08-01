@@ -7,6 +7,7 @@ export const LOCALES = [
   {
     id: 'olivos-estrada',
     nombre: 'Olivos I',
+    foto: '/locales/olivos1.jpg',
     calle: 'José Manuel Estrada 2591',
     barrio: 'Olivos, Vicente López',
     apertura: 2021,
@@ -20,6 +21,7 @@ export const LOCALES = [
   {
     id: 'olivos-maipu',
     nombre: 'Olivos II',
+    foto: '/locales/olivos2.jpg',
     calle: 'Av. Maipú 2482',
     barrio: 'Olivos, Vicente López',
     apertura: 2023,
@@ -33,10 +35,11 @@ export const LOCALES = [
   {
     id: 'belgrano',
     nombre: 'Belgrano',
-    calle: 'A confirmar',
+    foto: '/locales/belgrano.jpg',
+    calle: '3 de Febrero 982',
     barrio: 'Belgrano, CABA',
     apertura: 2025,
-    horarios: [{ dias: 'Lun a Sáb', horas: 'A confirmar' }],
+    horarios: [{ dias: 'Lun a Sáb', horas: '08:00 – 20:00' }],
     maps: 'https://www.google.com/maps/search/?api=1&query=Kuta+Cafe+Belgrano',
     nota: 'El más nuevo, primer local en Capital.',
   },
