@@ -19,23 +19,24 @@ const Locales = ({ compacto = false }) => (
       <header className="locales__head">
         <p className="k-label">Dónde estamos</p>
 
-        <div className="locales__head-fila">
+        <div className="locales__titular">
           <h2 className="k-signal locales__title">
             {compacto ? 'Tres paradas' : 'Locales'}
           </h2>
-
-          {/* "yendo" dice lo mismo que la línea de paradas, con el trazo de
-              ellos. Va acá y no en la home para no competir con el hero. */}
-          {!compacto && (
-            <img className="locales__yendo" src="/marca/yendo.png" alt="" aria-hidden="true" />
-          )}
+          <img
+            className="locales__abierto"
+            src="/marca/abierto.png"
+            alt=""
+            aria-hidden="true"
+          />
         </div>
       </header>
 
       <ol className="locales__linea">
         {LOCALES.map((l) => {
-          // null = el local no tiene horarios cargados. En ese caso no
-          // mostramos nada: mejor callar que afirmar que está cerrado.
+          // Estado en vivo, calculado en hora de Buenos Aires. null = el
+          // local no tiene horarios cargados: mejor callar que afirmar que
+          // está cerrado sin saberlo.
           const estado = estadoLocal(l);
 
           return (
@@ -45,14 +46,6 @@ const Locales = ({ compacto = false }) => (
               <div className="locales__parada-body">
                 <div className="locales__foto">
                   <img src={l.foto} alt={l.nombre} loading="lazy" />
-
-                  {estado?.abierto && (
-                    <img
-                      className="locales__cartel"
-                      src="/marca/abierto.png"
-                      alt="Abierto ahora"
-                    />
-                  )}
                 </div>
 
                 <div className="locales__info">

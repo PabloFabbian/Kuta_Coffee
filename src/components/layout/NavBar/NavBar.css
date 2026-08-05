@@ -1,3 +1,25 @@
+/* --- Salto al contenido ---------------------------------------------------
+   Oculto hasta que recibe foco. Es lo primero que tabula alguien con teclado:
+   sin esto tiene que pasar por los cuatro links en cada página. */
+.nav__saltar {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 200;
+  padding: 0.7rem 1.1rem;
+  border-radius: var(--radio);
+  background: var(--lime-cream);
+  color: var(--texto);
+  font-weight: 700;
+  font-size: 0.9rem;
+  transform: translateY(-150%);
+  transition: transform 0.18s ease;
+}
+
+.nav__saltar:focus {
+  transform: translateY(0);
+}
+
 .nav {
   position: sticky;
   top: 0;
@@ -14,6 +36,11 @@
   max-width: 1240px;
   margin-inline: auto;
   padding-inline: var(--gutter);
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
 }
 
 .nav__brand img {
@@ -43,15 +70,26 @@
   color: var(--lino);
 }
 
-/* La barra activa es la "línea" del sistema de señalética. */
-.nav__link.is-active::after {
+/* La barra activa es la "línea" del sistema de señalética. Crece desde el
+   centro en hover, así el link responde antes de hacer click. */
+.nav__link::after {
   content: '';
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -0.15rem;
-  height: 3px;
+  bottom: 0.3rem;
+  height: 2px;
   background: var(--salvia);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.nav__link:hover::after {
+  transform: scaleX(0.45);
+}
+
+.nav__link.is-active::after {
+  transform: scaleX(1);
 }
 
 .nav__actions {
@@ -61,10 +99,16 @@
   margin-left: auto;
 }
 
+/* Área táctil de 44px sin agrandar el ícono: el botón tiene 24px de dibujo
+   pero el dedo necesita más. */
 .nav__toggle {
   display: grid;
+  align-content: center;
   gap: 5px;
-  padding: 0.5rem 0.25rem;
+  width: 44px;
+  height: 44px;
+  justify-items: center;
+  border-radius: var(--radio);
 }
 
 .nav__bun {
@@ -72,7 +116,7 @@
   width: 24px;
   height: 2px;
   background: var(--lino);
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .nav__toggle.is-open .nav__bun:first-child {
@@ -83,24 +127,34 @@
   transform: translateY(-3.5px) rotate(-45deg);
 }
 
-/* Sin esta regla, el `display: flex` de abajo pisa al atributo [hidden] y el
-   panel queda invisible pero interceptando todos los clicks de la pagina en
-   mobile. Tiene que ir ANTES de .nav__panel para que gane por especificidad
-   de atributo, no por orden. */
-.nav__panel[hidden] {
-  display: none;
-}
-
+/* --- Panel mobile ---------------------------------------------------------
+   Se mantiene montado y se desplaza: así la salida también se anima. `inert`
+   en el JSX lo saca del tabulado cuando está cerrado, que es lo que antes
+   hacía [hidden]. */
 .nav__panel {
   position: fixed;
   inset: var(--nav-h) 0 0;
   background: var(--verde-prof);
   padding: var(--gutter);
+  overflow-y: auto;
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.28s;
+}
+
+.nav__panel.is-open {
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* `margin: auto` en vez de justify-content: center. Con centrado y overflow,
+   si la lista supera el alto de la pantalla se recorta por arriba y no se
+   puede scrollear hasta el primer link. */
+.nav__panel-lista {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 0.25rem;
-  overflow-y: auto;
+  margin-block: auto;
 }
 
 .nav__panel-link {
@@ -111,15 +165,19 @@
   border-bottom: var(--rule-claro);
   font-size: clamp(2.25rem, 11vw, 3.5rem);
   color: var(--lino);
+  transition: color 0.15s ease;
 }
 
-.nav__panel-link:hover {
+.nav__panel-link:hover,
+.nav__panel-link.active {
   color: var(--salvia);
 }
 
+/* --texto-suave es verde oscuro: sobre el panel daba 2.09:1, ilegible.
+   --salvia-texto existe justo para texto chico sobre fondo oscuro. */
 .nav__panel-num {
   font-size: 0.75rem;
-  color: var(--texto-suave);
+  color: var(--salvia-texto);
 }
 
 @media (min-width: 900px) {

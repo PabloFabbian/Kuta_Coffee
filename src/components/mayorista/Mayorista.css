@@ -89,3 +89,19 @@
     min-width: 16rem;
   }
 }
+
+
+/* --- "qué café" debajo del bloque verde ----------------------------------
+   Fuera del aside y sobre el fondo claro de la página. Chico y a la derecha:
+   remata la columna sin pelearle atención a los tres pasos. */
+.mayorista__columna {
+  align-self: start;
+}
+
+.mayorista__quecafe {
+  display: block;
+  width: clamp(125px, 50%, 175px);
+  height: auto;
+  margin: 2rem auto 0 0;
+  transform: rotate(-2deg);
+}

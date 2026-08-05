@@ -3,7 +3,12 @@
 }
 
 .merch__head {
-  padding-block: clamp(2.5rem, 7vw, 4.5rem) 2.5rem;
+  padding-block: clamp(2.5rem, 7vw, 4.5rem) 1.5rem;
+  /* antes: 2.5rem */
+}
+
+.merch__seccion:first-of-type {
+  padding-top: 0.5rem;
 }
 
 .merch__title {
@@ -167,4 +172,28 @@
 .merch__card-price span {
   font-weight: 400;
   color: var(--texto-suave);
+}
+
+
+/* --- Titular con el vaso take away ---------------------------------------
+   Mismo patrón que Eventos: arte a la derecha del título, y debajo en mobile
+   para no comerle ancho al titular. */
+.merch__titular {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-block: 0.75rem 1rem;
+}
+
+.merch__titular .merch__title {
+  margin-block: 0;
+  flex: 1 1 10ch;
+}
+
+.merch__vaso {
+  width: clamp(74px, 11vw, 90px);
+  height: auto;
+  flex: 0 0 auto;
 }

@@ -1,4 +1,4 @@
-import LeadForm from '../common/LeadForm/LeadForm';
+import LeadForm from '../../components/common/LeadForm/LeadForm';
 import './Eventos.css';
 
 /**
@@ -75,11 +75,20 @@ const Eventos = () => (
   <main className="eventos">
     <header className="eventos__head k-shell">
       <p className="k-label">Eventos y empresas</p>
-      <h1 className="k-signal eventos__title">
-        Café de especialidad
-        <br />
-        para tu evento
-      </h1>
+
+      <div className="eventos__titular">
+        <h1 className="k-signal eventos__title">
+          Café de especialidad
+          <br />
+          para tu evento
+        </h1>
+
+        {/* El cartel de la puerta, usado en su otro sentido: Kuta está
+            abierta a tomar el evento. Es decorativo, no refleja horario. */}
+
+        <img className="eventos__yendo" src="/marca/yendo.png" alt="" aria-hidden="true" />
+      </div>
+
       <p className="eventos__lead">
         Llevamos la barra de Kuta a oficinas, lanzamientos y encuentros. Contanos qué
         necesitás y te armamos una propuesta.
@@ -96,10 +105,14 @@ const Eventos = () => (
     </section>
 
     <section className="eventos__form k-shell" id="cotizar">
-      <h2 className="k-signal eventos__form-title">Pedí una propuesta</h2>
-      <p className="eventos__form-nota">
-        Con estos datos podemos cotizarte sin un ida y vuelta previo.
-      </p>
+      <div className="eventos__form-head">
+        <div>
+          <h2 className="k-signal eventos__form-title">Pedí una propuesta</h2>
+          <p className="eventos__form-nota">
+            Con estos datos podemos cotizarte sin un ida y vuelta previo.
+          </p>
+        </div>
+      </div>
 
       <LeadForm
         tipo="eventos"

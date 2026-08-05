@@ -50,7 +50,15 @@ const MerchPage = () => {
     <main className="merch">
       <header className="merch__head k-shell">
         <p className="k-label">Tienda</p>
-        <h1 className="k-signal merch__title">Llevate Kuta</h1>
+
+        <div className="merch__titular">
+          <h1 className="k-signal merch__title">Llevate Kuta</h1>
+
+          {/* El vaso take away: es literalmente de lo que trata esta página,
+              llevarse Kuta puesto. */}
+          <img className="merch__vaso" src="/marca/vaso-takeaway.png" alt="" aria-hidden="true" />
+        </div>
+
         <p className="merch__nota">
           Envíos a todo el país o retiro sin cargo en cualquiera de los tres locales.
         </p>

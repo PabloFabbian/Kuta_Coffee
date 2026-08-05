@@ -58,19 +58,21 @@ function App() {
       <CartProvider>
         <ScrollToTop />
         <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/menu" element={<MenuPage />} />
-          <Route path="/menu/:categoriaId" element={<MenuPage />} />
-          <Route path="/merch" element={<MerchPage />} />
-          <Route path="/merch/:id" element={<MerchDetail />} />
-          <Route path="/carrito" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/locales" element={<Locales />} />
-          <Route path="/mayorista" element={<Mayorista />} />
-          <Route path="/eventos" element={<Eventos />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div id="contenido">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/menu" element={<MenuPage />} />
+            <Route path="/menu/:categoriaId" element={<MenuPage />} />
+            <Route path="/merch" element={<MerchPage />} />
+            <Route path="/merch/:id" element={<MerchDetail />} />
+            <Route path="/carrito" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/locales" element={<Locales />} />
+            <Route path="/mayorista" element={<Mayorista />} />
+            <Route path="/eventos" element={<Eventos />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
         <CartDrawer />
         <Footer />
         <ToastContainer position="bottom-center" autoClose={2500} theme="dark" />

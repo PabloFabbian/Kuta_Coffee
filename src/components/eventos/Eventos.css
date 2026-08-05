@@ -62,3 +62,49 @@
     gap: 2.5rem;
   }
 }
+
+
+/* --- Titular con el cartel ABIERTO ---------------------------------------
+   El cartel va a la derecha del título y no baja de tamaño hasta mobile,
+   donde pasa debajo para no comerle ancho al titular. */
+.eventos__titular {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-block: 0.75rem 1.25rem;
+}
+
+.eventos__titular .eventos__title {
+  margin-block: 0;
+  flex: 1 1 12ch;
+}
+
+.eventos__abierto {
+  width: clamp(120px, 18vw, 190px);
+  height: auto;
+  flex: 0 0 auto;
+  /* Leve inclinación: está colgado, no pegado. */
+  transform: rotate(-3deg);
+}
+
+/* --- Encabezado del formulario con "yendo" -------------------------------- */
+.eventos__form-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.eventos__form-head .eventos__form-nota {
+  margin-block: 0.6rem 0;
+}
+
+.eventos__yendo {
+  width: clamp(130px, 20vw, 210px);
+  height: auto;
+  flex: 0 0 auto;
+}

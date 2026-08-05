@@ -1,4 +1,4 @@
-import LeadForm from '../common/LeadForm/LeadForm';
+import LeadForm from '../../components/common/LeadForm/LeadForm';
 import './Mayorista.css';
 
 /**
@@ -40,7 +40,9 @@ const Mayorista = () => (
   <main className="mayorista k-shell">
     <header className="mayorista__head">
       <p className="k-label">Mayorista</p>
+
       <h1 className="k-signal mayorista__title">Serví Kuta en tu local</h1>
+
       <p className="mayorista__lead">
         Vendemos grano tostado por kilo a cafeterías, restaurantes y oficinas. Contanos
         de tu negocio y te pasamos la lista con condiciones.
@@ -57,17 +59,28 @@ const Mayorista = () => (
         />
       </div>
 
-      <aside className="mayorista__aside">
-        <h2 className="k-label">Cómo sigue</h2>
-        <ol className="mayorista__pasos">
-          {PASOS.map((p, i) => (
-            <li key={p}>
-              <span className="k-data">{String(i + 1).padStart(2, '0')}</span>
-              <p>{p}</p>
-            </li>
-          ))}
-        </ol>
-      </aside>
+      <div className="mayorista__columna">
+        <aside className="mayorista__aside">
+          <h2 className="k-label">Cómo sigue</h2>
+          <ol className="mayorista__pasos">
+            {PASOS.map((p, i) => (
+              <li key={p}>
+                <span className="k-data">{String(i + 1).padStart(2, '0')}</span>
+                <p>{p}</p>
+              </li>
+            ))}
+          </ol>
+        </aside>
+
+        {/* Debajo del bloque verde, ya sobre el fondo claro de la página: por
+            eso usa el arte original en tinta oscura y no la versión clara. */}
+        <img
+          className="mayorista__quecafe"
+          src="/marca/que-cafe.png"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
     </div>
   </main>
 );
