@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { getMenu } from '../../../services/firestore';
-import { SITE, precio } from '../../../data/site';
+import { getMenu } from '../../services/firestore';
+import { SITE, precio } from '../../data/site';
 import './MenuPage.css';
 
 /**

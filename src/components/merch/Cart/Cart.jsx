@@ -31,7 +31,7 @@ const Cart = () => {
 
             <div className="carrito__datos">
               <h2 className="carrito__nombre">{l.nombre}</h2>
-              {l.talle && <p className="k-data carrito__talle">Talle {l.talle}</p>}
+              {l.talle && <p className="k-data carrito__talle">{l.talle}</p>}
               <button className="carrito__quitar" onClick={() => removeItem(l.key)}>
                 Quitar
               </button>

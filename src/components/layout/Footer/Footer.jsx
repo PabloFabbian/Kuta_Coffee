@@ -17,6 +17,15 @@ const Footer = () => (
       <div className="pie__marca">
         <img src="/kuta.png" alt="Kuta" className="pie__logo" />
         <p className="pie__claim">{SITE.claim}</p>
+        {/* Versión clara: el arte original es tinta oscura y sobre el verde
+            profundo del pie desaparecería. */}
+        <img
+          className="pie__mascota"
+          src="/marca/mascota-claro.png"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+        />
       </div>
 
       <nav className="pie__col" aria-label="Secciones">
@@ -24,6 +33,7 @@ const Footer = () => (
         <Link to="/menu">Menú</Link>
         <Link to="/merch">Tienda</Link>
         <Link to="/locales">Locales</Link>
+        <Link to="/eventos">Eventos</Link>
         <Link to="/mayorista">Mayorista</Link>
       </nav>
 
@@ -61,7 +71,7 @@ const Footer = () => (
         </span>
         <span className="k-data pie__credito">
           Sitio por{' '}
-          <a href="https://pfsoftware.vercel.app" target="_blank" rel="noreferrer">
+          <a href="https://pfsoftware.com.ar" target="_blank" rel="noreferrer">
             PF Software
           </a>
         </span>

@@ -70,11 +70,9 @@
 .merch__card-ph {
   width: 100%;
   height: 100%;
-  background: repeating-linear-gradient(
-    45deg,
-    color-mix(in srgb, var(--verde-prof) 6%, transparent) 0 10px,
-    transparent 10px 20px
-  );
+  background: repeating-linear-gradient(45deg,
+      color-mix(in srgb, var(--verde-prof) 6%, transparent) 0 10px,
+      transparent 10px 20px);
 }
 
 .merch__badge {
@@ -108,4 +106,65 @@
 .merch__card-price {
   font-size: 0.88rem;
   white-space: nowrap;
+}
+
+/* --- Secciones (Café / Merch) -------------------------------------------- */
+.merch__seccion {
+  padding-top: clamp(2rem, 5vw, 3.25rem);
+}
+
+.merch__seccion-head {
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--texto);
+  margin-bottom: 1.5rem;
+}
+
+.merch__seccion-title {
+  font-size: clamp(1.6rem, 4.5vw, 2.5rem);
+}
+
+.merch__seccion-bajada {
+  margin-top: 0.4rem;
+  max-width: 48ch;
+  color: var(--texto-suave);
+  font-size: 0.92rem;
+}
+
+/* --- Ficha de café -------------------------------------------------------- */
+.merch__card-body {
+  display: block;
+}
+
+.merch__card-perfil {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--verde-osc);
+  margin-bottom: 0.3rem;
+}
+
+.merch__card-origen {
+  margin-top: 0.15rem;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.merch__card-pesos {
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--texto-suave);
+}
+
+.merch__card-price {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.merch__card-price span {
+  font-weight: 400;
+  color: var(--texto-suave);
 }

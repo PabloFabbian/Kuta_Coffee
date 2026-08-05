@@ -83,6 +83,14 @@
   transform: translateY(-3.5px) rotate(-45deg);
 }
 
+/* Sin esta regla, el `display: flex` de abajo pisa al atributo [hidden] y el
+   panel queda invisible pero interceptando todos los clicks de la pagina en
+   mobile. Tiene que ir ANTES de .nav__panel para que gane por especificidad
+   de atributo, no por orden. */
+.nav__panel[hidden] {
+  display: none;
+}
+
 .nav__panel {
   position: fixed;
   inset: var(--nav-h) 0 0;

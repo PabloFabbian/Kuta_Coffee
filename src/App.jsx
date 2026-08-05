@@ -8,13 +8,16 @@ import NavBar from './components/layout/NavBar/NavBar';
 import Footer from './components/layout/Footer/Footer';
 import Hero from './components/home/Hero/Hero';
 import Manifiesto from './components/home/Manifiesto/Manifiesto';
-import MenuPage from './components/menu/MenuPage/MenuPage';
+import MenuPage from './components/menu/MenuPage';
 import MerchPage from './components/merch/MerchPage/MerchPage';
 import MerchDetail from './components/merch/MerchDetail/MerchDetail';
 import Cart from './components/merch/Cart/Cart';
+import CartDrawer from './components/merch/CartDrawer/CartDrawer';
 import Checkout from './components/merch/Checkout/Checkout';
-import Locales from './components/locales/Locales/Locales';
-import Mayorista from './components/mayorista/Mayorista/Mayorista';
+import Locales from './components/locales/Locales';
+import Mayorista from './components/mayorista/Mayorista';
+import Eventos from './components/eventos/Eventos';
+import Reconocimiento from './components/home/Reconocimiento/Reconocimiento';
 
 /** Cada navegación arranca arriba. Sin esto se hereda el scroll de la ruta previa. */
 const ScrollToTop = () => {
@@ -22,12 +25,13 @@ const ScrollToTop = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-    return null;
+  return null;
 };
 
 const Home = () => (
   <>
     <Hero />
+    <Reconocimiento />
     <Manifiesto />
     <Locales compacto />
   </>
@@ -64,8 +68,10 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/locales" element={<Locales />} />
           <Route path="/mayorista" element={<Mayorista />} />
+          <Route path="/eventos" element={<Eventos />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CartDrawer />
         <Footer />
         <ToastContainer position="bottom-center" autoClose={2500} theme="dark" />
       </CartProvider>

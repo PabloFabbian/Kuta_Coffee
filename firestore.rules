@@ -43,15 +43,16 @@ service cloud.firestore {
         && request.resource.data.comprador.email.matches('.+@.+\\..+');
     }
 
-    // --- Leads mayoristas: mismo criterio -------------------------------
-    match /mayorista/{doc} {
+    // --- Leads (eventos y mayorista): se crean, no se leen ---------------
+    match /leads/{doc} {
       allow read, update, delete: if false;
       allow create: if
-        request.resource.data.keys().hasAll(['nombre', 'negocio', 'email'])
-        && request.resource.data.nombre is string
-        && request.resource.data.nombre.size() > 2
-        && request.resource.data.nombre.size() < 120
-        && request.resource.data.email.matches('.+@.+\\..+');
+        request.resource.data.keys().hasAll(['tipo', 'datos', 'estado'])
+        && request.resource.data.tipo in ['eventos', 'mayorista']
+        && request.resource.data.estado == 'nuevo'
+        && request.resource.data.datos.email is string
+        && request.resource.data.datos.email.matches('.+@.+\\..+')
+        && request.resource.data.datos.keys().size() < 25;
     }
 
     // Todo lo demás, cerrado.

@@ -49,3 +49,26 @@
     padding-block: 2rem;
   }
 }
+
+
+/* Titular a la izquierda, lockup a la derecha. En mobile se apilan y el
+   lockup queda chico: es un acento, no el encabezado. */
+.manifiesto__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  margin-block: 1rem 3rem;
+}
+
+.manifiesto__cabecera .manifiesto__title {
+  margin-block: 0;
+  flex: 1 1 18ch;
+}
+
+.manifiesto__lockup {
+  width: clamp(150px, 22vw, 275px);
+  height: auto;
+  flex: 0 0 auto;
+}

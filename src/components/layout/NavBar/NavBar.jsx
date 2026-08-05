@@ -4,9 +4,9 @@ import CartWidget from '../../merch/CartWidget/CartWidget';
 import './NavBar.css';
 
 const LINKS = [
-  { to: '/menu', label: 'Menú' },
-  { to: '/merch', label: 'Tienda' },
   { to: '/locales', label: 'Locales' },
+  { to: '/merch', label: 'Tienda' },
+  { to: '/eventos', label: 'Eventos' },
   { to: '/mayorista', label: 'Mayorista' },
 ];
 

@@ -1,0 +1,100 @@
+.lead__grid {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.lead__campo {
+  display: block;
+}
+
+.lead__label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.lead__opcional {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--texto-suave);
+}
+
+.lead__campo input,
+.lead__campo select,
+.lead__campo textarea {
+  width: 100%;
+  padding: 0.78rem 0.85rem;
+  border-radius: var(--radio);
+  background: #fff;
+  border: 1.5px solid color-mix(in srgb, var(--texto) 22%, transparent);
+  font-size: 0.95rem;
+}
+
+.lead__campo input:focus,
+.lead__campo select:focus,
+.lead__campo textarea:focus {
+  border-color: var(--acento);
+  outline: none;
+}
+
+.lead__campo textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.lead__error {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.78rem;
+  font-style: normal;
+  color: #a11d1d;
+}
+
+.lead__submit {
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.lead__pie {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.lead__pie a {
+  border-bottom: 2px solid var(--salvia);
+}
+
+.lead__exito {
+  padding-block: 1rem 2rem;
+}
+
+.lead__exito-title {
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.lead__exito-texto {
+  max-width: 46ch;
+  margin-block: 1rem 1.75rem;
+  color: color-mix(in srgb, var(--texto) 80%, transparent);
+}
+
+@media (min-width: 720px) {
+  .lead__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .lead__campo {
+    grid-column: span 2;
+  }
+
+  .lead__campo--medio {
+    grid-column: span 1;
+  }
+
+  .lead__submit {
+    width: auto;
+    min-width: 16rem;
+  }
+}

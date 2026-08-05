@@ -1,0 +1,226 @@
+[
+    {
+        "_comentario": "PLACEHOLDER: precios y perfiles de referencia, no son los cafes de Kuta. Reemplazar antes de publicar.",
+        "id": "cafe-panela",
+        "nombre": "Panela",
+        "categoria": "cafe",
+        "perfil": "Dulce y acaramelado",
+        "origen": "Colombia",
+        "descripcion": "Notas a panela y fruta madura. Cuerpo medio, acidez baja. El de todos los días.",
+        "imagenes": [
+            "/merch/cafe/cafe-panela-1.jpg",
+            "/merch/cafe/cafe-panela-2.jpg"
+        ],
+        "variantes": [
+            {
+                "label": "250 g",
+                "precio": 28000,
+                "stock": 14
+            },
+            {
+                "label": "1 kg",
+                "precio": 98000,
+                "stock": 6
+            }
+        ],
+        "activo": true,
+        "notas": [
+            "Panela",
+            "Fruta madura",
+            "Chocolate"
+        ],
+        "ficha": {
+            "origen": "Huila, Colombia",
+            "productor": "Cooperativa local",
+            "variedad": "Caturra",
+            "proceso": "Lavado",
+            "altura": "1.500 - 1.700 msnm"
+        },
+        "molienda": [
+            "En grano",
+            "Molido para filtrado",
+            "Molido para espresso",
+            "Molido para prensa francesa"
+        ]
+    },
+    {
+        "_comentario": "PLACEHOLDER: precios y perfiles de referencia, no son los cafes de Kuta. Reemplazar antes de publicar.",
+        "id": "cafe-gesha",
+        "nombre": "Gesha",
+        "categoria": "cafe",
+        "perfil": "Floral y delicado",
+        "origen": "Colombia",
+        "descripcion": "Jazmín y bergamota. Acidez alta y cuerpo liviano. Lote chico.",
+        "imagenes": [
+            "/merch/cafe/cafe-gesha-1.jpg",
+            "/merch/cafe/cafe-gesha-2.jpg"
+        ],
+        "variantes": [
+            {
+                "label": "150 g",
+                "precio": 30000,
+                "stock": 8
+            }
+        ],
+        "activo": true,
+        "notas": [
+            "Jazmín",
+            "Bergamota",
+            "Té blanco"
+        ],
+        "ficha": {
+            "origen": "Nariño, Colombia",
+            "productor": "A confirmar",
+            "variedad": "Gesha",
+            "proceso": "Lavado",
+            "altura": "1.800 - 1.950 msnm"
+        },
+        "molienda": [
+            "En grano",
+            "Molido para filtrado",
+            "Molido para espresso",
+            "Molido para prensa francesa"
+        ]
+    },
+    {
+        "_comentario": "PLACEHOLDER: precios y perfiles de referencia, no son los cafes de Kuta. Reemplazar antes de publicar.",
+        "id": "cafe-bourbon-sidra",
+        "nombre": "Bourbon Sidra",
+        "categoria": "cafe",
+        "perfil": "Dulce y floral",
+        "origen": "Colombia",
+        "descripcion": "Durazno blanco y miel. Dulzor largo, final limpio.",
+        "imagenes": [
+            "/merch/cafe/cafe-bourbon-1.jpg",
+            "/merch/cafe/cafe-bourbon-2.jpg"
+        ],
+        "variantes": [
+            {
+                "label": "150 g",
+                "precio": 29000,
+                "stock": 10
+            }
+        ],
+        "activo": true,
+        "notas": [
+            "Durazno blanco",
+            "Miel",
+            "Floral"
+        ],
+        "ficha": {
+            "origen": "Cauca, Colombia",
+            "productor": "A confirmar",
+            "variedad": "Bourbon Sidra",
+            "proceso": "Lavado",
+            "altura": "1.600 - 1.750 msnm"
+        },
+        "molienda": [
+            "En grano",
+            "Molido para filtrado",
+            "Molido para espresso",
+            "Molido para prensa francesa"
+        ]
+    },
+    {
+        "_comentario": "PLACEHOLDER: precios y perfiles de referencia, no son los cafes de Kuta. Reemplazar antes de publicar.",
+        "id": "cafe-wush-wush",
+        "nombre": "Wush Wush",
+        "categoria": "cafe",
+        "perfil": "Cítrico y floral",
+        "origen": "Colombia",
+        "descripcion": "Mandarina y té blanco. Acidez brillante, muy aromático.",
+        "imagenes": [
+            "/merch/cafe/cafe-wushwush-1.jpg",
+            "/merch/cafe/cafe-wushwush-2.jpg"
+        ],
+        "variantes": [
+            {
+                "label": "150 g",
+                "precio": 30000,
+                "stock": 5
+            }
+        ],
+        "activo": true,
+        "notas": [
+            "Naranja",
+            "Pomelo",
+            "Floral"
+        ],
+        "ficha": {
+            "origen": "Cauca, Colombia",
+            "productor": "A confirmar",
+            "variedad": "Wush Wush",
+            "proceso": "Lavado",
+            "altura": "1.570 - 1.650 msnm"
+        },
+        "molienda": [
+            "En grano",
+            "Molido para filtrado",
+            "Molido para espresso",
+            "Molido para prensa francesa"
+        ]
+    },
+    {
+        "id": "buzo-hoodie-kuta",
+        "nombre": "Buzo Hoodie Kuta",
+        "categoria": "merch",
+        "descripcion": "Frisa peinada, unisex, serigrafía en el pecho. Calce amplio.",
+        "imagenes": [
+            "/merch/kuta-hoodie1.webp",
+            "/merch/kuta-hoodie2.webp",
+            "/merch/kuta-hoodie3.webp"
+        ],
+        "variantes": [
+            {
+                "label": "S",
+                "precio": 45000,
+                "stock": 2
+            },
+            {
+                "label": "M",
+                "precio": 45000,
+                "stock": 1
+            },
+            {
+                "label": "L",
+                "precio": 45000,
+                "stock": 1
+            }
+        ],
+        "activo": true
+    },
+    {
+        "id": "remera-kuta",
+        "nombre": "Remera Kuta",
+        "categoria": "merch",
+        "descripcion": "Algodón peinado 24/1, estampa a un color.",
+        "imagenes": [
+            "/merch/kuta-shirt1.webp",
+            "/merch/kuta-shirt2.webp",
+            "/merch/kuta-shirt3.webp"
+        ],
+        "variantes": [
+            {
+                "label": "S",
+                "precio": 28000,
+                "stock": 3
+            },
+            {
+                "label": "M",
+                "precio": 28000,
+                "stock": 3
+            },
+            {
+                "label": "L",
+                "precio": 28000,
+                "stock": 2
+            },
+            {
+                "label": "XL",
+                "precio": 28000,
+                "stock": 2
+            }
+        ],
+        "activo": true
+    }
+]

@@ -93,3 +93,18 @@
     gap: 2rem;
   }
 }
+
+
+/* La mascota cierra el pie. Va discreta: acompaña, no compite con los links. */
+.pie__mascota {
+  width: 118px;
+  height: auto;
+  margin-top: 1.5rem;
+  opacity: 0.9;
+}
+
+@media (min-width: 760px) {
+  .pie__mascota {
+    width: 140px;
+  }
+}

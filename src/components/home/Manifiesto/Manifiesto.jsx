@@ -32,11 +32,22 @@ const Manifiesto = () => (
     <div className="k-shell">
       <p className="k-label">Nosotros</p>
 
-      <h2 className="k-signal manifiesto__title">
-        Tres locales,
-        <br />
-        una sola receta
-      </h2>
+      <div className="manifiesto__cabecera">
+        <h2 className="k-signal manifiesto__title">
+          Tres locales,
+          <br />
+          una sola receta
+        </h2>
+
+        {/* El lockup acompaña al titular, no lo reemplaza: aporta el trazo de
+            la marca sin sacarle el texto real al encabezado. */}
+        <img
+          className="manifiesto__lockup"
+          src="/marca/no-es-cualquier-cafe.png"
+          alt="No es cualquier café"
+          loading="lazy"
+        />
+      </div>
 
       <div className="manifiesto__grid">
         {BLOQUES.map((b) => (

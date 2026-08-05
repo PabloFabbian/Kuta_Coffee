@@ -3,11 +3,14 @@ import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 /**
  * Carrito — SOLO merch.
  *
- * El menú de cafetería es informativo: no se pide desde la web, se pide en el
- * mostrador. Por eso ningún componente de /menu toca este contexto.
+ * El menú de cafetería es informativo: no se pide desde la web. Ningún
+ * componente de /menu toca este contexto.
  *
- * Una línea del carrito se identifica por producto + talle, no solo por id:
- * un buzo M y uno L son dos líneas distintas del mismo producto.
+ * Una línea se identifica por producto + talle, no sólo por id: un buzo M y
+ * uno L son dos líneas distintas del mismo producto.
+ *
+ * El estado del drawer vive acá y no en el layout porque quien lo abre es
+ * addItem: agregar algo al carrito tiene que mostrar el carrito.
  */
 
 const STORAGE_KEY = 'kuta.cart.v1';
@@ -33,6 +36,7 @@ const leerStorage = () => {
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(leerStorage);
+  const [drawerAbierto, setDrawerAbierto] = useState(false);
 
   // El carrito sobrevive al refresh. Sin esto, volver de Mercado Pago
   // significa perder la compra.
@@ -44,7 +48,10 @@ export const CartProvider = ({ children }) => {
     }
   }, [cart]);
 
-  const addItem = (item, cantidad = 1, talle = null) => {
+  const abrirCarrito = () => setDrawerAbierto(true);
+  const cerrarCarrito = () => setDrawerAbierto(false);
+
+  const addItem = (item, cantidad = 1, talle = null, { abrir = true } = {}) => {
     const key = lineKey(item.id, talle);
     setCart((prev) => {
       const existente = prev.find((l) => l.key === key);
@@ -69,6 +76,7 @@ export const CartProvider = ({ children }) => {
         },
       ];
     });
+    if (abrir) setDrawerAbierto(true);
   };
 
   const setCantidad = (key, cantidad) => {
@@ -103,6 +111,9 @@ export const CartProvider = ({ children }) => {
     clearCart,
     total,
     cantidadTotal,
+    drawerAbierto,
+    abrirCarrito,
+    cerrarCarrito,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

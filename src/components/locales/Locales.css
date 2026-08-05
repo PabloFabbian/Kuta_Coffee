@@ -219,3 +219,86 @@
     top: 0;
   }
 }
+
+/* --- Encabezado con el wordmark "yendo" ---------------------------------- */
+.locales__head-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.locales__yendo {
+  width: clamp(110px, 16vw, 175px);
+  height: auto;
+}
+
+/* --- Cartel ABIERTO ------------------------------------------------------
+   Colgado sobre la foto, como en la puerta del local. Solo aparece cuando
+   está abierto de verdad: no hay versión "cerrado" del cartel, y poner una
+   en gris sería inventarle a la marca un asset que no existe. */
+.locales__foto {
+  position: relative;
+}
+
+.locales__cartel {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: clamp(84px, 26%, 112px);
+  height: auto;
+  filter: drop-shadow(0 3px 6px rgb(0 0 0 / 0.28));
+}
+
+/* --- Estado abierto / cerrado -------------------------------------------- */
+.locales__estado {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--texto-suave);
+}
+
+.locales__estado.is-abierto {
+  color: var(--verde-osc);
+}
+
+.locales__punto {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.45;
+}
+
+.locales__estado.is-abierto .locales__punto {
+  opacity: 1;
+}
+
+.locales__estado-detalle {
+  font-weight: 400;
+  color: var(--texto-suave);
+}
+
+/* Carta y Maps en la misma fila. La carta es la acción principal de cada
+   parada, así que va como botón sólido y Maps queda como link secundario. */
+.locales__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.locales__acciones .locales__maps {
+  margin-top: 0;
+}
+
+.locales__menu {
+  padding-block: 0.7rem;
+  font-size: 0.9rem;
+}

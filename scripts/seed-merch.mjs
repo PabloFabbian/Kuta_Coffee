@@ -81,18 +81,6 @@ const adaptMerchItem = (docSnap) => {
     // Descriptor corto de taza: "Floral y delicado". Solo para café.
     perfil: d.perfil ?? '',
     origen: d.origen ?? '',
-    // Notas de cata sueltas: ["Naranja", "Pomelo", "Floral"].
-    notas: Array.isArray(d.notas) ? d.notas : [],
-    // Ficha del lote. Se renderiza sola: lo que no esté cargado no se muestra,
-    // así un café sin datos de finca no deja filas vacías.
-    ficha: d.ficha ?? {},
-    /**
-     * Molienda. No es una variante: no cambia precio ni stock, es una
-     * instrucción de preparación. Viaja pegada a la etiqueta de la variante
-     * ("250 g · Espresso") para que llegue al pedido y a Mercado Pago sin
-     * tener que tocar el carrito.
-     */
-    molienda: Array.isArray(d.molienda) ? d.molienda : [],
     imagen: d.img ?? d.imagen ?? '',
     imagenes: d.imagenes ?? (d.img ? [d.img] : []),
     variantes,
