@@ -1,16 +1,6 @@
 import LeadForm from '../../components/common/LeadForm/LeadForm';
 import './Eventos.css';
 
-/**
- * Eventos y empresas: la línea de mayor ticket que hoy sólo se puede consultar
- * por DM de Instagram. Una empresa que quiere cotizar café para 80 personas
- * necesita un formulario, no un mensaje privado.
- *
- * Los campos no son de relleno: tipo de evento, fecha, cantidad de personas y
- * lugar son exactamente lo que Kuta necesita para decir sí o no y cotizar sin
- * un ida y vuelta previo.
- */
-
 const CAMPOS = [
   {
     name: 'tipoEvento',

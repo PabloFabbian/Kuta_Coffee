@@ -43,6 +43,47 @@
   resize: vertical;
 }
 
+/* --- Flecha del select ----------------------------------------------------
+   La nativa cambia según el sistema operativo y no acompaña a la marca.
+   Va dibujada con bordes en vez de un SVG embebido: así hereda el color de
+   los tokens y sigue cualquier cambio de paleta sin tocar el archivo. */
+.lead__select {
+  position: relative;
+  display: block;
+  color: var(--texto-suave);
+}
+
+.lead__select select {
+  appearance: none;
+  -webkit-appearance: none;
+  /* Espacio para la flecha, si no el texto largo se le mete debajo. */
+  padding-right: 2.75rem;
+  cursor: pointer;
+}
+
+.lead__select::after {
+  content: '';
+  position: absolute;
+  right: 1.05rem;
+  top: 50%;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-70%) rotate(45deg);
+  /* Sin esto, hacer click justo sobre la flecha no abre el select. */
+  pointer-events: none;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.lead__select:focus-within {
+  color: var(--acento);
+}
+
+.lead__select:focus-within::after {
+  transform: translateY(-25%) rotate(225deg);
+}
+
 .lead__error {
   display: block;
   margin-top: 0.3rem;

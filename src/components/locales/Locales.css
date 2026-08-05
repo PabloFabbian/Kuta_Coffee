@@ -15,7 +15,7 @@
 }
 
 .locales__head {
-  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: clamp(2rem, 5vw, 3rem);
 }
 
 .locales__title {

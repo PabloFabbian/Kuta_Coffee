@@ -100,13 +100,17 @@ const LeadForm = ({ tipo, campos, textoBoton = 'Enviar consulta', mensajeExito }
             </span>
 
             {c.tipo === 'select' ? (
-              <select value={f[c.name]} onChange={set(c.name)}>
-                {c.opciones.map((o) => (
-                  <option key={o.value} value={o.value}>
-                    {o.label}
-                  </option>
-                ))}
-              </select>
+              /* El envoltorio existe para colgarle la flecha: los <select> no
+                 admiten ::after de forma confiable. */
+              <span className="lead__select">
+                <select value={f[c.name]} onChange={set(c.name)}>
+                  {c.opciones.map((o) => (
+                    <option key={o.value} value={o.value}>
+                      {o.label}
+                    </option>
+                  ))}
+                </select>
+              </span>
             ) : c.tipo === 'textarea' ? (
               <textarea value={f[c.name]} onChange={set(c.name)} placeholder={c.placeholder} />
             ) : (

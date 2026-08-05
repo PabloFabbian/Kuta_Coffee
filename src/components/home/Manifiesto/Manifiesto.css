@@ -68,7 +68,38 @@
 }
 
 .manifiesto__lockup {
-  width: clamp(150px, 22vw, 275px);
+  width: clamp(150px, 22vw, 270px);
+  align-self: center;
   height: auto;
   flex: 0 0 auto;
+}
+
+
+/* --- Resalte de "buen" ----------------------------------------------------
+   Itálica de Fraunces (el eje WONK le da el temblor que rima con el
+   lettering a pincel) más un trazo dibujado debajo. */
+.manifiesto__resalte {
+  position: relative;
+  /* inline-block reservaba la caja de línea completa y empujaba la palabra
+     fuera del renglón. Con inline el trazo se ancla igual y la línea base
+     queda alineada con "Un" y "café". */
+  display: inline;
+  color: var(--fern);
+}
+
+.manifiesto__resalte em {
+  font-style: italic;
+  font-variation-settings: 'SOFT' 80, 'WONK' 1, 'opsz' 120;
+}
+
+.manifiesto__trazo {
+  position: absolute;
+  left: -0.03em;
+  /* Anclado a la línea base, medida sobre el render real: 1.19em desde el
+     tope de la caja de línea deja el trazo justo debajo de las letras. Con
+     valores menores cruza la palabra. */
+  top: 1.1em;
+  width: calc(100% + 0.06em);
+  height: 0.15em;
+  overflow: visible;
 }
