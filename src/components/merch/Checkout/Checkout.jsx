@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useCart } from '../../../context/CartContext';
-import { createOrder } from '../../../services/firestore';
 import { LOCALES } from '../../../data/locales';
 import { SITE, precio, waLink } from '../../../data/site';
 import './Checkout.css';
@@ -86,31 +85,38 @@ const Checkout = () => {
           ? { tipo: 'retiro', local: f.local }
           : { tipo: 'envio', direccion: f.direccion, localidad: f.localidad, cp: f.cp };
 
-      const id = await createOrder({
-        comprador: { nombre: f.nombre, email: f.email, telefono: f.telefono },
-        items: cart.map(({ key, ...resto }) => resto),
-        total,
-        entrega,
-      });
-
-      setOrdenId(id);
-
+      /**
+       * Sólo mandamos QUÉ se quiere comprar. El precio lo pone el servidor
+       * leyendo Firestore: si lo mandara el navegador, cualquiera podría
+       * cambiarlo desde devtools y Mercado Pago cobraría ese monto.
+       *
+       * La orden también se crea allá, así el cliente no escribe en Firestore.
+       */
       const res = await fetch('/api/create-preference', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ordenId: id, items: cart, comprador: { email: f.email } }),
+        body: JSON.stringify({
+          items: cart.map((l) => ({ id: l.id, variante: l.talle, cantidad: l.cantidad })),
+          comprador: { nombre: f.nombre, email: f.email, telefono: f.telefono },
+          entrega,
+        }),
       });
 
-      if (!res.ok) throw new Error('preference');
+      const data = await res.json().catch(() => ({}));
 
-      const { init_point: link } = await res.json();
-      if (!link) throw new Error('preference');
+      if (res.status === 409) {
+        // Se quedaron sin stock mientras la persona completaba el formulario.
+        toast.error(data.error ?? 'Nos quedamos sin stock de un producto.');
+        return;
+      }
+      if (!res.ok || !data.init_point) throw new Error(data.error ?? 'preference');
 
+      if (data.ordenId) setOrdenId(data.ordenId);
       clearCart();
-      window.location.href = link;
-    } catch {
-      // La orden ya está guardada; sólo falló el link de pago.
-      toast.info('Guardamos tu pedido. Te lo cerramos por WhatsApp.');
+      window.location.href = data.init_point;
+    } catch (err) {
+      toast.info('No pudimos abrir el pago. Escribinos y lo cerramos a mano.');
+      console.error(err);
     } finally {
       setEnviando(false);
     }

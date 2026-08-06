@@ -5,8 +5,6 @@ import {
   getDocs,
   query,
   where,
-  addDoc,
-  Timestamp,
 } from 'firebase/firestore';
 import { db } from './firebase/firebaseConfig';
 
@@ -130,39 +128,14 @@ export const getMerchItem = async (id) => {
   return snap.exists() ? adaptMerchItem(snap) : null;
 };
 
-/**
- * Crea la orden y devuelve su id.
- * No descuenta stock acá: eso corre en la función serverless recién cuando
- * Mercado Pago confirma el pago (ver api/). Descontar antes
- * deja stock fantasma cada vez que alguien abandona el checkout.
+/*
+ * createOrder y createLead se fueron del cliente.
+ *
+ * Las órdenes las crea /api/create-preference —que además valida los precios
+ * contra esta misma base— y los leads los recibe /api/lead. El navegador ya no
+ * escribe nada en Firestore, así que las reglas cierran ambas colecciones.
  */
-export const createOrder = async ({ comprador, items, total, entrega }) => {
-  const ref = await addDoc(collection(db, 'orders'), {
-    comprador,
-    items,
-    total,
-    entrega,
-    estado: 'pendiente',
-    fecha: Timestamp.fromDate(new Date()),
-  });
-  return ref.id;
-};
 
-/**
- * Guarda un lead. Una sola colección `leads` con campo `tipo`
- * ('eventos' | 'mayorista') en vez de una colección por canal: un solo lugar
- * donde mirar, una sola regla de seguridad y un solo disparador de aviso el
- * día que se automatice la notificación.
- */
-export const createLead = async (tipo, datos) => {
-  const ref = await addDoc(collection(db, 'leads'), {
-    tipo,
-    datos,
-    estado: 'nuevo',
-    fecha: Timestamp.fromDate(new Date()),
-  });
-  return ref.id;
-};
 
 /** Imágenes del carrusel de Nosotros (documento único en `about/gallery`). */
 export const getAboutImages = async () => {

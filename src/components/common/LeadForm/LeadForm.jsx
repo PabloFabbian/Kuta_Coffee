@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { createLead } from '../../../services/firestore';
 import { SITE, waLink } from '../../../data/site';
 import './LeadForm.css';
 
@@ -58,7 +57,15 @@ const LeadForm = ({ tipo, campos, textoBoton = 'Enviar consulta', mensajeExito }
     }
     setEnviando(true);
     try {
-      await createLead(tipo, f);
+      // El guardado y el aviso por mail pasan por el servidor: la clave de
+      // Resend es secreta y así Firestore puede prohibir del todo que el
+      // navegador escriba en `leads`.
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tipo, datos: f }),
+      });
+      if (!res.ok) throw new Error('lead');
       setEnviado(true);
     } catch {
       toast.error('No pudimos enviar el formulario. Escribinos por WhatsApp y lo resolvemos.');

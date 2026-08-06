@@ -267,6 +267,7 @@
 }
 
 .checkout__volver {
+  display: block;
   font-size: 0.85rem;
   color: var(--texto-suave);
   text-decoration: underline;

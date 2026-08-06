@@ -29,30 +29,17 @@ service cloud.firestore {
       allow write: if false;
     }
 
-    // --- Órdenes: se crean, no se leen ni se modifican ------------------
+    // --- Órdenes y leads: sólo el servidor -------------------------------
+    // Las crea /api/create-preference y /api/lead con el SDK de Admin, que
+    // ignora estas reglas. Desde el navegador quedan cerradas del todo: no se
+    // pueden crear (nadie inventa una orden pagada) ni leer (tienen datos
+    // personales de terceros).
     match /orders/{doc} {
-      allow read, update, delete: if false;
-      allow create: if
-        request.resource.data.keys().hasAll(['comprador', 'items', 'total', 'estado'])
-        && request.resource.data.estado == 'pendiente'
-        && request.resource.data.total is number
-        && request.resource.data.total > 0
-        && request.resource.data.items.size() > 0
-        && request.resource.data.items.size() < 50
-        && request.resource.data.comprador.email is string
-        && request.resource.data.comprador.email.matches('.+@.+\\..+');
+      allow read, write: if false;
     }
 
-    // --- Leads (eventos y mayorista): se crean, no se leen ---------------
     match /leads/{doc} {
-      allow read, update, delete: if false;
-      allow create: if
-        request.resource.data.keys().hasAll(['tipo', 'datos', 'estado'])
-        && request.resource.data.tipo in ['eventos', 'mayorista']
-        && request.resource.data.estado == 'nuevo'
-        && request.resource.data.datos.email is string
-        && request.resource.data.datos.email.matches('.+@.+\\..+')
-        && request.resource.data.datos.keys().size() < 25;
+      allow read, write: if false;
     }
 
     // Todo lo demás, cerrado.

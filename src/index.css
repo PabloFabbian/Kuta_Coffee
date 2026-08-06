@@ -21,16 +21,28 @@
   --palm-leaf: #90a955;
   /* líneas, nodos, secundarios                    */
   --lime-cream: #ecf39e;
-  /* el claro: texto sobre oscuro y acentos        */
+  /* SOLO acentos chicos: franja de reconocimiento,
+     notas de cata, salto al contenido            */
 
-  /* --- Negro y derivados ------------------------------------------------
-     --negro: el único color no blanco del favicon Kuta.ico.
-     Esta paleta no trae ningún neutro, así que los dos claros se derivan de
-     Lime Cream: --papel para páginas enteras y --crema para superficies.
-     Lime Cream puro en un fondo completo satura la pantalla.             */
+  /* --- Neutros ----------------------------------------------------------
+     La paleta de marca no trae ningún neutro, así que hay que derivarlo.
+     Antes salían de Lime Cream y arrastraban su saturación (12% y 24%): en
+     superficies grandes —el marco de cada ficha, el resumen del checkout— el
+     verde amarillento se volvía invasivo.
+
+     Ahora salen de mezclar el propio hunter-green con un blanco cálido. Misma
+     familia, pero a media intensidad: conservan el tinte verdoso que le da
+     carácter al fondo sin invadir. El original tenía 12% y 24% de saturación;
+     estos tienen 7% y 10%.
+
+     --papel  fondo de página
+     --crema  superficies elevadas (fichas, resúmenes, bandas)
+     --hueso  texto y marcas sobre fondo oscuro. Este sí queda neutro: el
+              amarillo sobre verde profundo era lo que más vibraba                     */
   --negro: #1a1819;
   --papel: #f8fbdd;
-  --crema: #f2f7bb;
+  --crema: #eef0d7;
+  --hueso: #ecf39e;
 
   /* --- Compatibilidad ---------------------------------------------------
      Los componentes usan estos nombres. Se mantienen para no tocar los diez
@@ -39,7 +51,7 @@
   --verde-osc: var(--hunter-green);
   --verde-prof: var(--evergreen);
   --salvia: var(--palm-leaf);
-  --lino: var(--lime-cream);
+  --lino: var(--hueso);
   --tinta: var(--negro);
 
   /* --- Alias semánticos -------------------------------------------------- */
@@ -53,7 +65,7 @@
   /* palm-leaf aclarada para texto chico sobre
                                oscuro: la pura da 5.8:1, esta 7:1          */
   --oscuro: var(--evergreen);
-  --sobre-oscuro: var(--lime-cream);
+  --sobre-oscuro: var(--hueso);
   --acento: var(--fern);
 
   /* --- Tipografía ------------------------------------------------------- */
@@ -170,7 +182,7 @@ textarea {
   padding: 0.85rem 1.5rem;
   border-radius: var(--radio);
   background: var(--negro);
-  color: var(--lime-cream);
+  color: var(--hueso);
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.95rem;
@@ -198,7 +210,7 @@ textarea {
 
 .k-btn--ghost:hover:not(:disabled) {
   background: var(--negro);
-  color: var(--lime-cream);
+  color: var(--hueso);
 }
 
 .k-sr {
