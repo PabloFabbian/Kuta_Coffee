@@ -1,0 +1,87 @@
+.campo {
+  display: block;
+}
+
+.campo__label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.campo__opcional {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--texto-suave);
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 0.78rem 0.85rem;
+  border-radius: var(--radio);
+  background: #fff;
+  border: 1.5px solid color-mix(in srgb, var(--texto) 22%, transparent);
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: var(--acento);
+  outline: none;
+}
+
+.campo textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+/* --- Flecha del select ----------------------------------------------------
+   La nativa cambia según el sistema operativo. Va dibujada con bordes en vez
+   de un SVG embebido: así hereda el color de los tokens. */
+.campo__select {
+  position: relative;
+  display: block;
+  color: var(--texto-suave);
+}
+
+.campo__select select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 2.75rem;
+  cursor: pointer;
+}
+
+.campo__select::after {
+  content: '';
+  position: absolute;
+  right: 1.05rem;
+  top: 50%;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-70%) rotate(45deg);
+  /* Sin esto, hacer click justo sobre la flecha no abre el select. */
+  pointer-events: none;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+
+.campo__select:focus-within {
+  color: var(--acento);
+}
+
+.campo__select:focus-within::after {
+  transform: translateY(-25%) rotate(225deg);
+}
+
+.campo__error {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.78rem;
+  font-style: normal;
+  color: #a11d1d;
+}

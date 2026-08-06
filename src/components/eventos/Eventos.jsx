@@ -76,7 +76,7 @@ const Eventos = () => (
         {/* El cartel de la puerta, usado en su otro sentido: Kuta está
             abierta a tomar el evento. Es decorativo, no refleja horario. */}
 
-        <img className="eventos__yendo" src="/marca/yendo.png" alt="" aria-hidden="true" />
+        <img className="eventos__yendo" src="/marca/yendo.png" alt="" aria-hidden="true"  width={368} height={210} />
       </div>
 
       <p className="eventos__lead">

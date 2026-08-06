@@ -75,7 +75,7 @@ const Manifiesto = () => (
           src="/marca/no-es-cualquier-cafe.png"
           alt="No es cualquier café"
           loading="lazy"
-        />
+         width={466} height={340} />
       </div>
 
       <div className="manifiesto__grid">

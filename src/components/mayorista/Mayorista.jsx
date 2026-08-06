@@ -79,7 +79,7 @@ const Mayorista = () => (
           src="/marca/que-cafe.png"
           alt=""
           aria-hidden="true"
-        />
+         width={446} height={158} />
       </div>
     </div>
   </main>

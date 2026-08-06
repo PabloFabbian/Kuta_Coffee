@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { LOCALES } from '../../../data/locales';
-import poster from '../../../assets/bg.jpg';
+import poster from '../../../assets/bg.webp';
 import './Hero.css';
 
 /**
@@ -24,7 +24,7 @@ const Hero = () => {
       <video
         ref={video}
         className="hero__bg"
-        src={`${process.env.PUBLIC_URL}/bg-video.mp4`}
+        src="/bg-video.mp4"
         poster={poster}
         autoPlay
         muted

@@ -56,7 +56,7 @@ const MerchPage = () => {
 
           {/* El vaso take away: es literalmente de lo que trata esta página,
               llevarse Kuta puesto. */}
-          <img className="merch__vaso" src="/marca/vaso-takeaway.png" alt="" aria-hidden="true" />
+          <img className="merch__vaso" src="/marca/vaso-takeaway.png" alt="" aria-hidden="true"  width={186} height={222} />
         </div>
 
         <p className="merch__nota">

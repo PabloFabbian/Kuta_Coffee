@@ -20,7 +20,7 @@ const Reconocimiento = () => (
     <div className="k-shell reco__inner">
       {/* El sello de Kuta en vez de una medalla genérica: el reconocimiento
           se lee como propio de la marca, no como un badge de plantilla. */}
-      <img className="reco__sello" src="/marca/sello.png" alt="" aria-hidden="true" />
+      <img className="reco__sello" src="/marca/sello.png" alt="" aria-hidden="true"  width={358} height={342} />
 
       <div className="reco__texto">
         <p className="reco__label">Reconocimiento</p>

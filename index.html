@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#344e41" />
 
-    <link rel="icon" href="%PUBLIC_URL%/Kuta.ico" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/kuta.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="icon" href="/kuta.ico" />
+    <link rel="apple-touch-icon" href="/kuta.png" />
+    <link rel="manifest" href="/manifest.json" />
 
     <title>Kuta | Café de especialidad en Olivos y Belgrano</title>
     <meta
@@ -21,7 +21,7 @@
       property="og:description"
       content="Café que va con vos. Olivos I, Olivos II y Belgrano."
     />
-    <meta property="og:image" content="%PUBLIC_URL%/kuta.png" />
+    <meta property="og:image" content="/kuta.png" />
 
     <!-- Fraunces para titulos: los ejes SOFT y WONK ablandan terminaciones y
          desalinean levemente los remates, que es lo mas cerca que se puede
@@ -38,5 +38,7 @@
   <body>
     <noscript>Necesitás habilitar JavaScript para ver este sitio.</noscript>
     <div id="root"></div>
+    <!-- Vite inyecta el bundle desde acá: en CRA esto lo hacía el build. -->
+    <script type="module" src="/src/index.jsx"></script>
   </body>
 </html>

@@ -1,0 +1,72 @@
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--radio);
+  box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--texto) 28%, transparent);
+}
+
+.stepper button {
+  display: grid;
+  place-items: center;
+  line-height: 1;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+.stepper button:hover:not(:disabled) {
+  background: var(--texto);
+  color: var(--fondo);
+}
+
+/* Deshabilitado en vez de dejar bajar de min: el botón muerto comunica el
+   límite mejor que un click que no hace nada. */
+.stepper button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.stepper button:first-child {
+  border-radius: var(--radio) 0 0 var(--radio);
+}
+
+.stepper button:last-child {
+  border-radius: 0 var(--radio) var(--radio) 0;
+}
+
+.stepper__valor {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Tamaños -------------------------------------------------------------- */
+.stepper--sm button {
+  width: 1.95rem;
+  height: 1.95rem;
+  font-size: 0.95rem;
+}
+
+.stepper--sm .stepper__valor {
+  min-width: 1.95rem;
+  font-size: 0.85rem;
+}
+
+.stepper--md button {
+  width: 2.15rem;
+  height: 2.15rem;
+  font-size: 1rem;
+}
+
+.stepper--md .stepper__valor {
+  min-width: 2.15rem;
+  font-size: 0.9rem;
+}
+
+.stepper--lg button {
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 1.15rem;
+}
+
+.stepper--lg .stepper__valor {
+  min-width: 2.5rem;
+  font-size: 0.95rem;
+}

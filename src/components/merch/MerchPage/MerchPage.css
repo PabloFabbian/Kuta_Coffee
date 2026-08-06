@@ -35,20 +35,38 @@
   padding-bottom: 3rem;
 }
 
+/* Grilla con separación real en vez de la de 1px con bordes: las fichas se
+   leen como objetos sueltos, no como celdas de una tabla. 238px da cuatro
+   columnas en desktop, que es justo lo que entra sin dejar un café huérfano
+   en una segunda fila. */
 .merch__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 1px;
-  background: color-mix(in srgb, var(--verde-prof) 15%, transparent);
-  border: 1px solid color-mix(in srgb, var(--verde-prof) 15%, transparent);
+  grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
 }
 
 /* Grilla sin radios ni sombras: los productos se leen como fichas de vidriera. */
+/* La ficha es una superficie contenida.
+   Antes el marco de la foto tomaba el color de fondo de la propia imagen y,
+   con fotos sobre fondo claro, la ficha se disolvía contra la página: se veían
+   productos flotando, no una tienda. El contorno la define pase lo que pase
+   con la foto. */
 .merch__card {
-  background: var(--lino);
   display: flex;
   flex-direction: column;
-  transition: background 0.16s ease;
+  height: 100%;
+  background: var(--fondo);
+  border: 1.5px solid color-mix(in srgb, var(--texto) 13%, transparent);
+  border-radius: calc(var(--radio) * 2.5);
+  overflow: hidden;
+  transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.merch__card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--verde) 45%, transparent);
+  box-shadow: 0 14px 28px -18px color-mix(in srgb, var(--verde-prof) 70%, transparent);
 }
 
 .merch__card:hover {
@@ -59,6 +77,8 @@
   position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
+  background: var(--superficie);
+  border-bottom: 1.5px solid color-mix(in srgb, var(--texto) 10%, transparent);
 }
 
 .merch__card-img img {
@@ -95,10 +115,9 @@
 
 .merch__card-body {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.9rem 1rem 1.1rem;
+  flex-direction: column;
+  flex: 1;
+  padding: 0.9rem 1rem 1rem;
 }
 
 .merch__card-name {

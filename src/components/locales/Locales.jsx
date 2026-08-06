@@ -28,7 +28,7 @@ const Locales = ({ compacto = false }) => (
             src="/marca/abierto.png"
             alt=""
             aria-hidden="true"
-          />
+           width={240} height={174} />
         </div>
       </header>
 

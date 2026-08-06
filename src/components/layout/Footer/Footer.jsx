@@ -15,7 +15,7 @@ const Footer = () => (
   <footer className="pie">
     <div className="k-shell pie__grid">
       <div className="pie__marca">
-        <img src="/kuta.png" alt="Kuta" className="pie__logo" />
+        <img src="/kuta.png" alt="Kuta" className="pie__logo"  width={490} height={311} />
         <p className="pie__claim">{SITE.claim}</p>
         {/* Versión clara: el arte original es tinta oscura y sobre el verde
             profundo del pie desaparecería. */}
@@ -25,7 +25,7 @@ const Footer = () => (
           alt=""
           aria-hidden="true"
           loading="lazy"
-        />
+         width={336} height={423} />
       </div>
 
       <nav className="pie__col" aria-label="Secciones">

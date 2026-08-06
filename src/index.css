@@ -221,3 +221,42 @@ textarea {
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   Scrollbar
+   Dos motores, dos sintaxis: Firefox usa scrollbar-color (dos valores, sin
+   más control); WebKit y Chromium usan los pseudoelementos. Van las dos, y
+   quien no entienda ninguna se queda con la nativa, que también sirve.
+   ========================================================================== */
+
+html {
+  scrollbar-color: var(--verde-osc) var(--superficie);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--superficie);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--verde-osc);
+  border-radius: 99px;
+  /* El borde del color del track deja la barra flotando en vez de tocar los
+     costados. Se hace con border y no con margin porque el thumb no admite
+     márgenes. */
+  border: 3px solid var(--superficie);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--verde-prof);
+}
+
+/* La esquina donde se cruzan las dos barras, si aparecen las dos. */
+::-webkit-scrollbar-corner {
+  background: var(--superficie);
+}
